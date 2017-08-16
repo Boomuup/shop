@@ -42,6 +42,6 @@ class User extends Common
      *  用户注册功能
      */
     public function register(){
-
+        $this->error('暂未开放注册功能');
     }
 }
