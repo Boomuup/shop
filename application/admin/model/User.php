@@ -43,4 +43,33 @@ class User extends Model
         // 返回成功信息
         return ['valid'=>1,'msg'=>'登陆成功'];
     }
+
+    public function changePassword($data){
+        //引入验证器
+        $validate = Loader::validate('Password');
+
+        // 当验证不通过时
+        if (!$validate->check($data)){
+            return ['valid'=>0,'msg'=>$validate->getError()];
+        }
+
+        // 验证旧密码是否正确
+        $oldInfo = $this::find(session('user.user_id'));
+        // 取出旧密码
+        $oldPassword = $oldInfo['password'];
+
+        // 验证旧密码是否正确
+        if(!password_verify($data['oldPassword'],$oldPassword)){
+            return ['valid'=>0,'msg'=>'原密码不正确'];
+        }
+
+        // 验证数据结束， 皆新密码更新到数据库中
+        $oldInfo->password= password_hash($data['newPassword'],PASSWORD_DEFAULT);
+        $res = $oldInfo->save();
+        if($res){
+            return ['valid'=>1,'msg'=>'修改密码成功'];
+        }else{
+            return ['valid'=>0,'msg'=>'修改密码失败'];
+        }
+    }
 }

@@ -6,7 +6,7 @@ use think\Controller;
 use think\Request;
 use app\admin\model\Category as CategoryModel;
 
-class Category extends Controller
+class Category extends Common
 {
     protected $db;
 
