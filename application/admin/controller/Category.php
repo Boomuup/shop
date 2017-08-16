@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
+use think\Loader;
 use think\Request;
 use app\admin\model\Category as CategoryModel;
 
@@ -53,7 +54,19 @@ class Category extends Common
      */
     public function save(Request $request)
     {
+
+
         if (request()->isPost()){
+
+            // 引入验证器
+            $validate = Loader::validate('Category');
+
+            // 验证数据
+            if(!$validate->check(input('post.'))){
+                $this->error($validate->getError());
+                exit;
+            }
+
             $this->db->catname = input('post.catname');
             $this->db->thumb = input('post.thumb');
             $this->db->pid = input('post.pid');
@@ -108,7 +121,18 @@ class Category extends Common
      */
     public function update(Request $request, $id)
     {
+
+
         if (request()->isPost()){
+            // 引入验证器
+            $validate = Loader::validate('Category');
+
+            // 验证数据
+            if(!$validate->check(input('post.'))){
+                $this->error($validate->getError());
+                exit;
+            }
+
             $db = $this->db::find($id);
             $db->catname = input('post.catname');
             $db->thumb = input('post.thumb');

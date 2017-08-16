@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use app\admin\model\Subgoods;
 use think\Controller;
+use think\Loader;
 use think\Request;
 use app\admin\model\Goods as GoodsModel;
 use app\admin\model\Category;
@@ -47,13 +48,21 @@ class Goods extends Controller
     public function save(Request $request)
     {
          //halt(input('post.'));
-        //TODO:: 保存数据
-        // 1. 创建模型 通过模型 进行数据验证
 
-        // 2. 然后判断是否保存成功
+
 
         // 简化
         if (request()->isPost()){
+
+            // 引入验证器
+            $validate = Loader::validate('Goods');
+
+            // 验证数据
+            if(!$validate->check(input('post.'))){
+                $this->error($validate->getError());
+                exit;
+            }
+
             // 添加商品表
             $db = new GoodsModel();
             $db->gname = input('post.gname');
@@ -123,7 +132,19 @@ class Goods extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         if (request()->isPost()){
+
+            // 引入验证器
+            $validate = Loader::validate('Goods');
+
+            // 验证数据
+            if(!$validate->check(input('post.'))){
+                $this->error($validate->getError());
+                exit;
+            }
+
             $db = GoodsModel::get($id);
             $db->gname = input('post.gname');
             $db->pid = input('post.pid');

@@ -82,11 +82,18 @@
                         </script>
 
                     </div>
+
                     <div class="form-group">
                         <label >商品描述</label>
-                        <textarea name="details" class="form-control" cols="30" rows="5">{$oldData['details']}</textarea>
-                        <p class="help-block">商品的详细信息</p>
+                        <textarea name="details" id="container" style="height:300px;width:100%;">{$oldData['details']}</textarea>
+                        <script>
+                            util.ueditor('container', {hash:2,data:'hd'}, function (editor) {
+                                //这是回调函数 editor是百度编辑器实例
+                            });
+                        </script>
                     </div>
+
+
                     <div class="form-group">
                         <label>商品预览图</label>
                         <!--缩略图使用框架的单图上传组件-->
