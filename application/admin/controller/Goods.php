@@ -2,6 +2,7 @@
 
 namespace app\admin\controller;
 
+use app\admin\model\Subgoods;
 use think\Controller;
 use think\Request;
 use app\admin\model\Goods as GoodsModel;
@@ -48,10 +49,12 @@ class Goods extends Controller
          //halt(input('post.'));
         //TODO:: 保存数据
         // 1. 创建模型 通过模型 进行数据验证
+
         // 2. 然后判断是否保存成功
 
         // 简化
         if (request()->isPost()){
+            // 添加商品表
             $db = new GoodsModel();
             $db->gname = input('post.gname');
             $db->pid = input('post.pid');
@@ -61,8 +64,17 @@ class Goods extends Controller
             $db->details = input('post.details');
             $db->cover = input('post.cover');
             $db->click = input('post.click');
-
             $db->save();
+
+            // 添加货品表
+            foreach (json_decode(input('post.subclass'),true) as $v){
+                // 通过多表关联  进行数据添加
+                $db->assGoods()->save(
+                  ['sname'=>$v['sname'],'snum'=>$v['snum']]
+                );
+            }
+
+
             $this->success( '添加成功');
             exit;
         }
@@ -90,9 +102,16 @@ class Goods extends Controller
     {
         // 获取旧数据
         $oldData = GoodsModel::get($id);
+        // 获取货品表数据
+
+        // 获取货品的详细信息
+        $oldSub = $oldData->assGoods()->select();
+        $oldSub = json_encode($oldSub,JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         // 获取商品分类
         $cData = (new Category())->getTreeData();
-       return view('',compact('oldData','cData'));
+
+        // 分配数据
+       return view('',compact('oldData','cData','oldSub'));
     }
 
     /**
@@ -114,8 +133,20 @@ class Goods extends Controller
             $db->details = input('post.details');
             $db->cover = input('post.cover');
             $db->click = input('post.click');
-
             $db->save();
+
+            // 保存商品数据到货品表
+            // 先删后填
+            $db->assGoods()->delete();
+
+            // 添加货品表
+            foreach (json_decode(input('post.subclass'),true) as $v){
+                // 通过多表关联  进行数据添加
+                $db->assGoods()->save(
+                    ['sname'=>$v['sname'],'snum'=>$v['snum']]
+                );
+            }
+
             $this->success( '修改成功','admin/goods/index');
             exit;
         }
@@ -135,6 +166,8 @@ class Goods extends Controller
         // 判断是否为顶级栏目
         //  获取旧数据
         GoodsModel::destroy($id);
+        // 删除货品表数据
+        Subgoods::where('goods_id',$id)->delete();
         $this->success('删除成功');
         exit();
 
