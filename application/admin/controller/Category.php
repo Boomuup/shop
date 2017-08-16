@@ -26,9 +26,8 @@ class Category extends Common
      */
     public function index()
     {
-        // 获取所有分类数据
-        $data = $this->db::all();
-        // 没有任何参数调用 fetch
+        $data = $this->db->getTreeData();
+
         return view('index',compact('data'));
     }
 
