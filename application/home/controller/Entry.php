@@ -15,8 +15,9 @@ class Entry extends Controller
      * 2.商品表数据
      */
     public function index(){
-        // 获取后台分类表数据
-        $categoryData = (new Category())->getTreeData();
+        // 获取后台分类顶级分类表数据
+        // select 选择数据集
+        $categoryData = (new Category())->where('pid',0)->select();
 
         return view('',compact('categoryData'));
     }

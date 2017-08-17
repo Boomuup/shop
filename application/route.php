@@ -20,6 +20,9 @@ Route::rule('/','home/Entry/index');
 Route::group(['ext'=>'html'],function(){
     // method ：请求方法
     Route::rule('register','home/User/register');
+    Route::rule('login','home/User/login');
+    Route::rule('logout','home/User/logout');
+    Route::rule('user','home/User/user');
 });
 
 return [
