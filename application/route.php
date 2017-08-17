@@ -13,6 +13,15 @@
 //if (defined('BIND_MODULE') && BIND_MODULE == 'admin')
 //    return [];
 
+use think\Route;
+
+Route::rule('/','home/Entry/index');
+
+Route::group(['ext'=>'html'],function(){
+    // method ：请求方法
+    Route::rule('register','home/User/register');
+});
+
 return [
     '__pattern__' => [
         'name' => '\w+',
@@ -23,3 +32,5 @@ return [
     ],
 
 ];
+
+

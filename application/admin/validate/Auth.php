@@ -16,7 +16,7 @@ class Auth extends Validate
     protected $rule = [
         // 用户名必填
       'username' => 'require',
-        // 密码必填,密码最少6未
+        // 密码必填,密码最少6位
         'password'=>'require'
     ];
 

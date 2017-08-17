@@ -2,10 +2,9 @@
 
 namespace app\admin\controller;
 
-use think\Controller;
 use think\Loader;
 use think\Request;
-use app\admin\model\Category as CategoryModel;
+use app\common\model\Category as CategoryModel;
 
 class Category extends Common
 {

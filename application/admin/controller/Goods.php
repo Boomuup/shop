@@ -2,12 +2,12 @@
 
 namespace app\admin\controller;
 
-use app\admin\model\Subgoods;
+use app\common\model\Subgoods;
 use think\Controller;
 use think\Loader;
 use think\Request;
-use app\admin\model\Goods as GoodsModel;
-use app\admin\model\Category;
+use app\common\model\Goods as GoodsModel;
+use app\common\model\Category;
 
 class Goods extends Controller
 {

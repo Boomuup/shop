@@ -2,7 +2,7 @@
 
 namespace app\admin\controller;
 
-use app\admin\model\User as UserModel;
+use app\common\model\User as UserModel;
 
 class User extends Common
 {

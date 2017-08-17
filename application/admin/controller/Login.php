@@ -3,7 +3,7 @@
 namespace app\admin\controller;
 
 use think\Controller;
-use app\admin\model\User;
+use app\common\model\User;
 
 class Login extends Controller
 {

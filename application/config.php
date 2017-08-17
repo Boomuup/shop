@@ -143,6 +143,7 @@ return [
     // 视图输出字符串内容替换
     'view_replace_str'       => [
         '__ZY__'=>'/static',
+        '__ZHOME__'=>'/static/home',
         '__PUBLIC__' => '/public/',
         '__ROOT__'   => '/',
         '__CDN__'    => '',
