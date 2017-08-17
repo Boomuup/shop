@@ -17,7 +17,7 @@ class User extends Controller
 
         // 调取分类数据
         // 获取后台分类表数据
-        $this->categoryData = (new Category())->getTreeData();
+        $this->categoryData = (new Category())->where('pid',0)->select();
     }
 
     /**
