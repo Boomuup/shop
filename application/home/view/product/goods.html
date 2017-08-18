@@ -36,36 +36,28 @@
                 <h3 class="fn f14 m-t-20 f-666">{$goodsData['description']}</h3>
                 <div class="clear m-t-20 price-box lh1">
                     <span class="fl f-d93732 f24 fb price-show" data-base-price="299.00" data-discount="100">{$goodsData['gprice']}元</span>
-                    <span class="fr f-666">有现货</span></div>
-
+                    <span class="fr f-666">有现货</span>
+                </div>
                 <div class="p-y-20">
+                    <?php if($subGoodsData): ?>
                     <div class="attr-box clear">
-                        <!--<span class="fl pro-title dib f-666">个性定制：</span>-->
+                        <span class="fl pro-title dib f-666">礼物款式：</span>
                         <span class="fl">
-	        		        	<a href="javascript:void(0)" class="select_attr  dib m-r-8 s_228"
-                                   data-attr="228-0c72389fe999eb3038e7e7523c454c6c" data-spec-key="228"
-                                   data-spec="0c72389fe999eb3038e7e7523c454c6c">直接购买</a>
-	        		        	<a href="javascript:void(0)" class="select_attr  dib m-r-8 s_228"
-                                   data-attr="228-53749b6449a123250ad971489b475a6c" data-spec-key="228"
-                                   data-spec="53749b6449a123250ad971489b475a6c">个性定制</a>
-	        		        	<input type="hidden" class="attr_selected" name="attr_list[]" id="attr_228"/>
-	        	</span>
+                            {foreach $subGoodsData as $v}
+                                <a href="javascript:void(0)" class="select_attr  dib m-r-8 s_226" data="{$v['id']}">{$v['sname']}</a>
+                            {/foreach}
+                         </span>
                     </div>
-                    <input type="hidden" id="goodsAttrListCount" value="1"/>
-                    <input type="hidden" class="spec_selected" name="spec_list" id="spec_selected"/>
-
+                    <?php endif; ?>
                 </div>
                 <div class="btn-box clear m-t-20 lh1">
 
                     <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single m-r-10 fl ani-bg">直接购买</a>
-                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single m-r-10 fl ani-bg"
-                       style="display:none">定制购买</a>
-
-
+                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single m-r-10 fl ani-bg" style="display:none">定制购买</a>
                     <a href="javascript:void(0)" class="collect fl ani-bg "><i class="icon-bgr icon-heart"></i></a>
                 </div>
                 <div class="btn-others">
-                    <a href="category.php?id=119"><i class="icon-bgr icon-item m-r-10"></i>查看更多同类商品</a>
+                    <a href="/category/{$goodsData['pid']}.html"><i class="icon-bgr icon-item m-r-10"></i>查看更多同类商品</a>
                 </div>
             </div>
         </div>
@@ -76,10 +68,10 @@
 
 
     <div class="screen-image dn" id="screen_image" onselectstart="return false;">
-        <div id="naturalpic" class="tc rel"><img src="picture/ajax-loader.gif" class="loading"></div>
-        <i class="icon-bgr icon-goods-close hander" id="evt_close"></i><i class="icon-bgr icon-goods-left hander"
-                                                                          id="evt_left"></i><i
-            class="icon-bgr icon-goods-right hander" id="evt_right"></i>
+        <div id="naturalpic" class="tc rel"><img src="__ZHOME__/picture/ajax-loader.gif" class="loading"></div>
+        <i class="icon-bgr icon-goods-close hander" id="evt_close"></i>
+        <i class="icon-bgr icon-goods-left hander" id="evt_left"></i>
+        <i class="icon-bgr icon-goods-right hander" id="evt_right"></i>
         <ul id="tablist" class="tc"></ul>
     </div>
 </div>
