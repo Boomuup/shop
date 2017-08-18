@@ -1,0 +1,117 @@
+﻿{extend name='common' /}
+
+{block name='content'}
+
+<div class="bg-f5f5f5 p-b-10">
+    <div class="currentloc bg-f5f5f5 clear">
+        <div class="center f12">
+            <div class="fl"><a href="/">首页</a><span>/</span>{$goodsData['gname']}</div>
+            <a href="" class="fr qqbtn tc f-666" target="_blank">QQ在线交谈</a>
+            <span class="fr f-666">服务热线：400-111-111 (8:00－24:00)</span>
+            <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
+        </div>
+    </div>
+
+
+    <div class="goods-info bg-fff overhide">
+        <div class="center clear m-t-60">
+            <div class="img-sm fl m-r-60" id="goods_img_list">
+                {foreach $images as $k=>$v}
+                <img src="{$v}" class="focus img_id_{$k}">
+                {/foreach}
+
+            </div>
+            <div class="img-single fl rel" id="goods_single_list"><span class="loading f16">
+            <img src="__ZHOME__/picture/ajax-loader.gif"></span>
+
+                {foreach $images as $k=>$v}
+                <img src="{$v}" class="cloudzoom"
+                     <?php if($k !=1): ?> style="display:none;" <?php endif; ?>>
+                {/foreach}
+
+            </div>
+
+            <div class="goods-attr fr">
+                <h2 class="lh1 f30">{$goodsData['gname']}</h2>
+                <h3 class="fn f14 m-t-20 f-666">{$goodsData['description']}</h3>
+                <div class="clear m-t-20 price-box lh1">
+                    <span class="fl f-d93732 f24 fb price-show" data-base-price="299.00" data-discount="100">{$goodsData['gprice']}元</span>
+                    <span class="fr f-666">有现货</span></div>
+
+                <div class="p-y-20">
+                    <div class="attr-box clear">
+                        <!--<span class="fl pro-title dib f-666">个性定制：</span>-->
+                        <span class="fl">
+	        		        	<a href="javascript:void(0)" class="select_attr  dib m-r-8 s_228"
+                                   data-attr="228-0c72389fe999eb3038e7e7523c454c6c" data-spec-key="228"
+                                   data-spec="0c72389fe999eb3038e7e7523c454c6c">直接购买</a>
+	        		        	<a href="javascript:void(0)" class="select_attr  dib m-r-8 s_228"
+                                   data-attr="228-53749b6449a123250ad971489b475a6c" data-spec-key="228"
+                                   data-spec="53749b6449a123250ad971489b475a6c">个性定制</a>
+	        		        	<input type="hidden" class="attr_selected" name="attr_list[]" id="attr_228"/>
+	        	</span>
+                    </div>
+                    <input type="hidden" id="goodsAttrListCount" value="1"/>
+                    <input type="hidden" class="spec_selected" name="spec_list" id="spec_selected"/>
+
+                </div>
+                <div class="btn-box clear m-t-20 lh1">
+
+                    <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single m-r-10 fl ani-bg">直接购买</a>
+                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single m-r-10 fl ani-bg"
+                       style="display:none">定制购买</a>
+
+
+                    <a href="javascript:void(0)" class="collect fl ani-bg "><i class="icon-bgr icon-heart"></i></a>
+                </div>
+                <div class="btn-others">
+                    <a href="category.php?id=119"><i class="icon-bgr icon-item m-r-10"></i>查看更多同类商品</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="detail-content bg-fff">
+        {$goodsData['details']}
+    </div>
+
+
+    <div class="screen-image dn" id="screen_image" onselectstart="return false;">
+        <div id="naturalpic" class="tc rel"><img src="picture/ajax-loader.gif" class="loading"></div>
+        <i class="icon-bgr icon-goods-close hander" id="evt_close"></i><i class="icon-bgr icon-goods-left hander"
+                                                                          id="evt_left"></i><i
+            class="icon-bgr icon-goods-right hander" id="evt_right"></i>
+        <ul id="tablist" class="tc"></ul>
+    </div>
+</div>
+
+{/block}
+
+{block name='footer'}
+<div class="toolbars tc" id="back_to_top">
+    <a href="" target="_blank" class="ani-bg" id="goods_qq_chat"><i class="icon-bgr icon-qq"></i></a>
+    <a href="javascript:void(0)" class="ani-bg m-t-10"><i class="icon-bgr icon-totop"></i></a>
+</div>
+<script>
+    (function($){
+        var $window = $(window),$totop = $("#back_to_top");
+        $window.scroll(function(){
+            winTop();
+        });
+        function winTop(){
+            if($window.scrollTop()<100){
+                $totop.stop().fadeOut(300);
+            }else{
+                $totop.stop().fadeIn(300);
+            }
+        }
+        winTop();
+    })(jQuery);
+
+</script>
+
+<script src="__ZHOME__/js/base64.js"></script>
+<script src="__ZHOME__/js/artdialog.js"></script>
+<script src="__ZHOME__/js/goods.js"></script>
+
+{/block}
+

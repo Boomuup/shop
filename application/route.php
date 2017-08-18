@@ -31,6 +31,8 @@ Route::group(['ext'=>'html'],function(){
 Route::group(['ext'=>'html'],function(){
     // 商品分类路由
    Route::rule('category/:cid','home/Entry/category');
+   // 商品详情页
+   Route::rule('goods/:gid','home/Product/goods');
 });
 
 return [
