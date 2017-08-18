@@ -69,6 +69,7 @@ class Goods extends Controller
             $db->pid = input('post.pid');
             $db->gprice = input('post.gprice');
             $db->mprice = input('post.mprice');
+            $db->description = input('post.description');
             $db->atlas = input('post.atlas');
             $db->details = input('post.details');
             $db->cover = input('post.cover');
@@ -150,6 +151,7 @@ class Goods extends Controller
             $db->pid = input('post.pid');
             $db->gprice = input('post.gprice');
             $db->mprice = input('post.mprice');
+            $db->description = input('post.description');
             $db->atlas = input('post.atlas');
             $db->details = input('post.details');
             $db->cover = input('post.cover');

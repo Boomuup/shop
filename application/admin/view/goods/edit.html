@@ -38,6 +38,11 @@
                         <label>市场价格</label>
                         <input type="text" class="form-control" name="mprice" value="{$oldData['mprice']}">
                     </div>
+                    <div>
+                        <label>商品描述</label>
+                        <textarea class="form-control" name="description" cols="30" rows="3 " maxlength="255" placeholder="最长不超过255个字符">{$oldData['description']}</textarea>
+                    </div>
+
                     <div class="form-group">
                         <label >商品图集</label>
 
@@ -84,7 +89,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label >商品描述</label>
+                        <label >商品详情</label>
                         <textarea name="details" id="container" style="height:300px;width:100%;">{$oldData['details']}</textarea>
                         <script>
                             util.ueditor('container', {hash:2,data:'hd'}, function (editor) {

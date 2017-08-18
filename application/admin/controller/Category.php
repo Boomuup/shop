@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use think\Loader;
 use think\Request;
 use app\common\model\Category as CategoryModel;
+use app\common\model\Goods;
 
 class Category extends Common
 {
@@ -166,6 +167,14 @@ class Category extends Common
             $this->error('请先移除子栏目');
             exit();
         }
+
+        // 判断该分类下面是否有商品
+        if ((new Goods())->where('pid',$oldData['cid'])->select()){
+            $this->error('该栏目下面还有商品，请先处理完成商品后，再进行删除');
+            exit();
+        }
+
+
         $oldData->delete();
         $this->success('删除成功');
         exit();

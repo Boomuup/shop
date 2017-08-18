@@ -377,5 +377,31 @@
     </div>
 </div>
 
+<div class="toolbars tc" id="back_to_top">
+	<a href="" target="_blank"  class="ani-bg"><i class="icon-bgr icon-qq"></i></a>
+	<a href="javascript:void(0)" class="ani-bg m-t-10"><i class="icon-bgr icon-totop"></i></a>
+</div>
+{/block}
+
+{block name='footer'}
+
+<script>
+
+    (function($){
+        var $window = $(window),$totop = $("#back_to_top");
+        $window.scroll(function(){
+            winTop();
+        });
+        function winTop(){
+            if($window.scrollTop()<100){
+                $totop.stop().fadeOut(300);
+            }else{
+                $totop.stop().fadeIn(300);
+            }
+        }
+        winTop();
+    })(jQuery);
+    $(".slider").slider({animate_type:"fade"});
+</script>
 
 {/block}

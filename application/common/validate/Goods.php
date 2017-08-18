@@ -21,6 +21,7 @@ class Goods extends Validate
         'atlas' => 'require',
         'details' => 'require',
         'cover' => 'require',
+        'description' => 'max:255',
     ];
 
     protected $message = [
@@ -30,6 +31,7 @@ class Goods extends Validate
         'atlas.require' =>'商品展示图不能为空',
         'details.require' =>'商品描述不能为空',
         'cover.require' =>'商品封面图不能为空',
+        'description.max' =>'描述超过255个字符',
     ];
 
 }
