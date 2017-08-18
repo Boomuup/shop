@@ -32,9 +32,13 @@ class User extends Model
         // 验证密码是否正确
         // 获取 数据库中用户的信息
         if(isset($data['type']) && $data['type'] == 'phone'){
-            $userInfo = $this->where('phone',$data['username'])->find();
+            // 前台登陆
+            $userInfo = $this->where('is_admin',0)->where('phone',$data['username'])->find();
+            $userSign = 'customer';
         }else{
-            $userInfo = $this->where('username',$data['username'])->find();
+            // 后台登陆
+            $userInfo = $this->where('is_admin',1)->where('username',$data['username'])->find();
+            $userSign = 'admin';
         }
         // 当$userInfo为空时 表示没有找到对应的用户名用户名
         if (!$userInfo){
@@ -47,6 +51,7 @@ class User extends Model
         // 将用户信息存入到session中
         session('user.user_id',$userInfo['uid']);
         session('user.user_username',$userInfo['username']);
+        session('user.sign',md5($userSign));
 
 
         if (isset($data['remember']) && $data['remember']){

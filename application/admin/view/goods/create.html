@@ -43,15 +43,14 @@
                             <!--缩略图使用框架的单图上传组件-->
                             <div>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="atlas" readonly>
+                                    <input type="text" class="form-control" id ='duotu' name="atlas" readonly>
                                     <div class="input-group-btn">
+
                                         <button onclick="upImage1(this)" class="btn btn-default" type="button">选择图片</button>
                                     </div>
                                 </div>
-                                <div class="input-group" style="margin-top:5px;">
-                                    <img src="__ZY__/node_modules/hdjs/images/nopic.jpg" class="img-responsive img-thumbnail1" width="150">
-                                    <em class="close" style="position:absolute; top: 0px; right: -14px;" title="删除这张图片" onclick="removeImg1(this)">×</em>
-                                </div>
+                                <div id="demo" class="row" data></div>
+
                             </div>
                             <script>
                                 //上传图片
@@ -66,17 +65,30 @@
 
                                         util.image(function (images) {          //上传成功的图片，数组类型
                                             url = images.join('|');
-
+                                            $('#demo').data(images);
                                             $("[name='atlas']").val(url);
-                                            $(".img-thumbnail1").attr('src', images[0]);
+//                                            $(".img-thumbnail1").attr('src', images[0]);
+
+                                            $.each(images,function (v) {
+                                                $('<div class="col-sm-2" style="margin-top:5px;">\n' +
+                                                    ' <img src='+ images[v] +' class="img-responsive img-thumbnail1" width="150">\n' +
+                                                    ' <em class="close" style="position:absolute; top: 0px; right: 0px;" title="删除这张图片" onclick="removeImg1(this)">×</em>\n' +
+                                                    '  </div>').appendTo($('#demo'));
+
+                                            })
+
                                         }, options)
                                     });
                                 }
 
                                 //移除图片
                                 function removeImg1(obj) {
-                                    $(obj).prev('img').attr('src', 'resource/images/nopic.jpg');
-                                    $(obj).parent().prev().find('input').val('');
+                                    var oldurl = $(obj).prev('img').attr('src');
+                                    $(obj).remove();
+                                    var url = $('#duotu').val().split('|');
+
+
+
                                 }
                             </script>
 
