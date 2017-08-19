@@ -47,7 +47,7 @@
 
             </div>
             <!--购物车页面-->
-            <div class="goods-attr fr" id="app">
+            <div class="goods-attr fr" >
                 <h2 class="lh1 f30" v-text="goodsData['gname']"></h2>
                 <h3 class="fn f14 m-t-20 f-666" v-text="goodsData['description']"></h3>
                 <div class="clear m-t-20 price-box lh1">
@@ -60,7 +60,7 @@
                         <span class="fl">
 
 
-                          <a href="javascript:" v-on:click="add(v.sname,k)" class="select_attr  dib m-r-8 s_226" v-for="(v,k) in subGoodsData" >
+                          <a href="javascript:" @click="add(v.sname,k)" class="select_attr  dib m-r-8 s_226" v-for="(v,k) in subGoodsData" >
                                 {{v.sname}}
                           </a>
 
@@ -81,7 +81,7 @@
                 <div class=" clear m-t-20 lh1">
 
                     <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single  " style="background-color:#FFD9BC;color: #E5511D;padding: 15px 50px;margin-right: 10px">立即购买</a>
-                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single  " >加入购物车</a>
+                    <a href="javascript:void(0)" @click="commits" id="product_diy" class="btn-red-single  " >加入购物车</a>
                 </div>
                 <div class="btn-others">
                     <a href="/category/{$goodsData['pid']}.html"><i class="icon-bgr icon-item m-r-10"></i>查看更多同类商品</a>
@@ -151,8 +151,21 @@
 
         methods:{
             add(v,k){
-                this.goods['options'] = v;
+                this.goods['options'] = [v];
                 this.totalNum =this.subGoodsData[k]['snum'];
+            },
+            commits(){
+                if(this.goods['options'] == ''){
+                    alert('请选择商品的款式');
+                }else {
+                    data = JSON.stringify(this.goods);
+                    console.log()
+                    axios.post('/home/cart/add',{data:data}).then(function (response) {
+
+                    })
+                }
+
+
             }
         },
     })
