@@ -25,5 +25,12 @@
     },
     "config": {
         "preferred-install": "dist"
+    },
+    "autoload":{
+        "files":[
+        ],
+        "psr-4":{
+            "helper\\":"helper\\"
+        }
     }
 }

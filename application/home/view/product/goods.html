@@ -1,5 +1,21 @@
 ﻿{extend name='common' /}
 
+{block name='header'}
+<script src="__ZY__/node_modules/vue/dist/vue.js"></script>
+<script src="__ZY__/node_modules/axios/dist/axios.js"></script>
+<style>
+    .count-box input {
+        width: 110px;
+        border: none;
+        padding: 0px;
+        margin: 0;
+        height: 38px;
+        line-height: 38px;
+        text-indent: 2em;
+    }
+</style>
+{/block}
+
 {block name='content'}
 
 <div class="bg-f5f5f5 p-b-10">
@@ -17,7 +33,7 @@
         <div class="center clear m-t-60">
             <div class="img-sm fl m-r-60" id="goods_img_list">
                 {foreach $images as $k=>$v}
-                <img src="{$v}" class="focus img_id_{$k}">
+                <img src="{$v}" class=" img_id_{$k}">
                 {/foreach}
 
             </div>
@@ -30,31 +46,42 @@
                 {/foreach}
 
             </div>
-
-            <div class="goods-attr fr">
-                <h2 class="lh1 f30">{$goodsData['gname']}</h2>
-                <h3 class="fn f14 m-t-20 f-666">{$goodsData['description']}</h3>
+            <!--购物车页面-->
+            <div class="goods-attr fr" id="app">
+                <h2 class="lh1 f30" v-text="goodsData['gname']"></h2>
+                <h3 class="fn f14 m-t-20 f-666" v-text="goodsData['description']"></h3>
                 <div class="clear m-t-20 price-box lh1">
-                    <span class="fl f-d93732 f24 fb price-show" data-base-price="299.00" data-discount="100">{$goodsData['gprice']}元</span>
-                    <span class="fr f-666">有现货</span>
+                    <span class="fl f-d93732 f24 fb price-show" ><span v-text="goodsData['gprice']"></span>元</span>
                 </div>
                 <div class="p-y-20">
                     <?php if($subGoodsData): ?>
                     <div class="attr-box clear">
                         <span class="fl pro-title dib f-666">礼物款式：</span>
                         <span class="fl">
-                            {foreach $subGoodsData as $v}
-                                <a href="javascript:void(0)" class="select_attr  dib m-r-8 s_226" data="{$v['id']}">{$v['sname']}</a>
-                            {/foreach}
+
+
+                          <a href="javascript:" v-on:click="add(v.sname,k)" class="select_attr  dib m-r-8 s_226" v-for="(v,k) in subGoodsData" >
+                                {{v.sname}}
+                          </a>
+
                          </span>
+                    </div>
+                    <div class="attr-box clear">
+
+                        <span class="fl pro-title dib f-666" >数量：</span>
+                        <div class="dib count-box">
+                            <input type="number" v-model="goods.num" value="1" min="1" max="" >
+                        </div>
+                    </div>
+                    <div class="attr-box clear">
+                        <span class="fl pro-title dib f-666">库存：{{totalNum}} 件</span>
                     </div>
                     <?php endif; ?>
                 </div>
-                <div class="btn-box clear m-t-20 lh1">
+                <div class=" clear m-t-20 lh1">
 
-                    <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single m-r-10 fl ani-bg">直接购买</a>
-                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single m-r-10 fl ani-bg" style="display:none">定制购买</a>
-                    <a href="javascript:void(0)" class="collect fl ani-bg "><i class="icon-bgr icon-heart"></i></a>
+                    <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single  " style="background-color:#FFD9BC;color: #E5511D;padding: 15px 50px;margin-right: 10px">立即购买</a>
+                    <a href="javascript:void(0)" id="product_diy" class="btn-red-single  " >加入购物车</a>
                 </div>
                 <div class="btn-others">
                     <a href="/category/{$goodsData['pid']}.html"><i class="icon-bgr icon-item m-r-10"></i>查看更多同类商品</a>
@@ -62,10 +89,13 @@
             </div>
         </div>
     </div>
+    <!--购物车结束-->
+
+    <!--商品简介-->
     <div class="detail-content bg-fff">
         {$goodsData['details']}
     </div>
-
+    <!--商品简介结束-->
 
     <div class="screen-image dn" id="screen_image" onselectstart="return false;">
         <div id="naturalpic" class="tc rel"><img src="__ZHOME__/picture/ajax-loader.gif" class="loading"></div>
@@ -101,8 +131,34 @@
 
 </script>
 
-<script src="__ZHOME__/js/base64.js"></script>
-<script src="__ZHOME__/js/artdialog.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            goodsData:{$goodsData},
+            subGoodsData:{$subGoodsData},
+            goodsnum:0,
+            goods:{
+                'id':{$goodsData->gid},
+                'name':'{$goodsData->gname}',
+                'num':1,
+                'price':{$goodsData->gprice},
+                'options':'',
+            },
+            totalNum : {$totalNum},
+
+        },
+
+        methods:{
+            add(v,k){
+                this.goods['options'] = v;
+                this.totalNum =this.subGoodsData[k]['snum'];
+            }
+        },
+    })
+
+</script>
+
 <script src="__ZHOME__/js/goods.js"></script>
 
 {/block}
