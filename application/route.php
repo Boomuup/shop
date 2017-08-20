@@ -33,6 +33,8 @@ Route::group(['ext'=>'html'],function(){
    Route::rule('category/:cid','home/Entry/category');
    // 商品详情页
    Route::rule('goods/:gid','home/Product/goods');
+   // 购物车
+   Route::rule('cart','home/Cart/list');
 });
 
 return [

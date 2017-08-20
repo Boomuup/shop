@@ -6,6 +6,7 @@ use app\common\model\Goods;
 use app\common\model\Subgoods;
 use think\Controller;
 use app\common\model\Category;
+use think\Session;
 
 class Product extends Controller
 {
@@ -45,6 +46,9 @@ class Product extends Controller
         // select 选择数据集
         $categoryData = $this->categoryData;
 
-        return view('',compact('goodsData','categoryData','images','subGoodsData','totalNum'));
+        // 获取购物车数据
+        $goods = Session::get('cart.goods');
+        $cart = json_encode($goods,JSON_UNESCAPED_UNICODE| JSON_UNESCAPED_SLASHES);
+        return view('',compact('goodsData','categoryData','images','subGoodsData','totalNum','cart'));
     }
 }

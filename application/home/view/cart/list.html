@@ -61,24 +61,24 @@
             </tr>
             </thead>
             <tbody id="cart_list">
-            <tr data-rec-id="1300777" >
+            <tr data-rec-id="1300777" v-for="(v,k) in cart" >
                 <td class="info tl">
-                    <a href="/goods/{$goods['gid']}.html">
-                        <img src="{$goods['cover']}" class="dib m-r-5">
+                    <a :href="'/goods/'+v['id']+'.html'" target="_blank">
+                        <img :src="v['info']['cover']" class="dib m-r-5">
                     </a>
                     <div class="dib">
-                        <p><a href="/goods/{$goods['gid']}.html">{$goods['gname']}</a></p>
-                        <p class="f12"><span class="f-666">款式:{$data['options'][0]['sname']}</span></p>
+                        <p><a :href="'/goods/'+v['id']+'.html'" target="_blank">{{v['name']}}</a></p>
+                        <p class="f12"><span class="f-666">款式:{{v['options'][0]['sname']}}</span></p>
                     </div>
                 </td>
-                <td>￥{$goods['gprice']}</td>
+                <td>￥{{v['price']}}</td>
                 <td>
                     <div class="dib count-box">
-                        <a href="javascript:void(0)" @click="reduce" class="icon-bgr icon-sub dib"></a><input type="text" :value="cart['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add" class="icon-bgr icon-add dib"></a>
+                        <a href="javascript:void(0)" @click="reduce(k)" class="icon-bgr icon-sub dib"></a><input type="text" :value="v['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add(k,v['options'][0]['snum'])" class="icon-bgr icon-add dib"></a>
                     </div>
                 </td>
-                <td>￥{$goods['gprice']}</td>
-                <td id="sub_total_1300777">￥{{totalPrice}}</td>
+                <td>{{v['options'][0]['snum']}}</td>
+                <td id="sub_total_1300777">￥{{ v['price']*v['num'] || v['subprice'] }}</td>
                 <td><a href="javascript:void(0)" class="icon-bgr icon-delete" data-rec_id="1300777"></a></td>
             </tr>
             </tbody>
@@ -144,30 +144,34 @@
     new Vue({
         el:'#app',
         data:{
-            cart:{$cart},
-            goods:{$goods1}
+            cart:{$data},
         },
         computed:{
             totalPrice(){
                 let sum=0;
-                sum = this.cart.num*this.cart.price;
+                for (v in this.cart){
+                    this.cart[v]['subprice']=this.cart[v].num * this.cart[v]['price'];
+                   sum = sum + this.cart[v]['subprice'];
+                }
                 return sum;
             }
         },
         methods:{
-            add(){
-                if (this.cart.num >=this.goods.sub['snum']){
-                    this.cart.num =this.goods.sub['snum'];
+            add(k,max){
+
+                if (this.cart[k]['num'] >=max){
+                    this.cart[k]['num']  =max;
                 }else {
-                    this.cart.num = this.cart.num+1;
+                    this.cart[k]['num']  = this.cart[k]['num'] +1;
                 }
 
             },
-            reduce(){
-                if (this.cart.num <=1){
-                    this.cart.num = 1;
+            reduce(k){
+
+                if (this.cart[k]['num'] <=1){
+                    this.cart[k]['num'] = 1;
                 }else {
-                    this.cart.num = this.cart.num-1;
+                    this.cart[k]['num'] = this.cart[k]['num']-1;
                 }
 
             }

@@ -1,8 +1,7 @@
 ﻿{extend name='common' /}
 
 {block name='header'}
-<script src="__ZY__/node_modules/vue/dist/vue.js"></script>
-<script src="__ZY__/node_modules/axios/dist/axios.js"></script>
+
 <style>
     .count-box input {
         width: 110px;
@@ -14,6 +13,40 @@
         text-indent: 2em;
     }
 </style>
+{/block}
+
+{block name='cartnum'}
+<a href="#" class="m-l-5" id="nav_cart">
+    <i class="icon-bgr icon-cart ani-bg"></i>
+    <span class="cart-count" id="cart_count">10</span>
+</a>
+{/block}
+
+{block name='cart'}
+<div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;">
+    <i class="icon-bgr icon-operate"></i>
+    <table class="f12">
+        <tbody>
+        <tr class="gds" v-for="v in cart">
+
+            <td class="overtxt" width="50%">
+                <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
+            </td>
+            <td class="tr" width="25%">X{{v['num']}}<br>￥{{v['price']}}<br>
+                <a class="remove_item" data-rec-id="1301026" href="javascript:void(0)">删除</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="3">
+                <div class="clear m-t-10">
+                    <a href="/cart.html" class="fr btn-red-sml ani-bg">去购物车结算</a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 {/block}
 
 {block name='content'}
@@ -60,7 +93,7 @@
                         <span class="fl">
 
 
-                          <a href="javascript:" @click="add(v.sname,k)" class="select_attr  dib m-r-8 s_226" v-for="(v,k) in subGoodsData" >
+                          <a href="javascript:" @click="add(v,k)" class="select_attr  dib m-r-8 s_226" v-for="(v,k) in subGoodsData" >
                                 {{v.sname}}
                           </a>
 
@@ -153,6 +186,7 @@
                 'price':{$goodsData->gprice},
                 'options':'',
             },
+            cart:{$cart},
             totalNum : {$totalNum},
 
         },
@@ -172,6 +206,8 @@
                     data = JSON.stringify(this.goods);
                     axios.post('/home/cart/add',{data:data}).then(function (response) {
                         // 将购物车数据 返回
+
+                        alert('成功添加到购物车');
                     })
                 }
 
