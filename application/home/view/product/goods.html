@@ -51,7 +51,6 @@
 
             <a href="#" class="m-l-5" id="nav_cart">
                 <i class="icon-bgr icon-cart ani-bg"></i>
-                <span class="cart-count" id="cart_count">10</span>
             </a>
 
 
@@ -83,13 +82,13 @@
                 <i class="icon-bgr icon-operate"></i>
                 <table class="f12">
                     <tbody>
-                    <tr class="gds" v-for="v in cart">
+                    <tr class="gds" v-for="(v,k) in cart">
 
                         <td class="overtxt" width="50%">
                             <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
                         </td>
                         <td class="tr" width="25%">X{{v['num']}}<br>￥{{v['price']}}<br>
-                            <a class="remove_item" data-rec-id="1301026" href="javascript:void(0)">删除</a>
+                            <a class="remove_item" data-rec-id="1301026" @click="del(k)" href="javascript:void(0)">删除</a>
                         </td>
                     </tr>
 
@@ -287,7 +286,7 @@
 </script>
 
 <script>
-    new Vue({
+   let carts = new Vue({
         el:'#app',
         data:{
             goodsData:{$goodsData},
@@ -310,6 +309,11 @@
                 this.goods['options'] = [v];
                 this.totalNum =this.subGoodsData[k]['snum'];
             },
+            del(k){
+                axios.get('/api/APi/delete?sid='+k).then(function (response) {
+                    carts.cart = response.data;
+                })
+            },
             commits(){
                 if(this.goods['options'] == ''){
                     alert('请选择商品的款式');
@@ -318,9 +322,9 @@
 
                 }else {
                     data = JSON.stringify(this.goods);
-                    axios.post('/home/cart/add',{data:data}).then(function (response) {
+                    axios.post('/api/APi/add',{data:data}).then(function (response) {
                         // 将购物车数据 返回
-
+                        carts.cart = response.data;
                         alert('成功添加到购物车');
                     })
                 }

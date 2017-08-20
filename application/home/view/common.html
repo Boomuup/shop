@@ -39,7 +39,6 @@
                 {block name="cartnum"}
                     <a href="#" class="m-l-5" id="nav_cart">
                         <i class="icon-bgr icon-cart ani-bg"></i>
-                        <span class="cart-count" id="cart_count">0</span>
                     </a>
                 {/block}
 
@@ -71,13 +70,13 @@
                     <i class="icon-bgr icon-operate"></i>
                     <table class="f12">
                         <tbody>
-                        <tr class="gds" v-for="v in cart">
+                        <tr class="gds" v-for="(v,k) in cart">
 
                             <td class="overtxt" width="50%">
                                 <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
                             </td>
                             <td class="tr" width="25%">X{{v['num']}}<br>￥{{v['price']}}<br>
-                                <a class="remove_item" data-rec-id="1301026" href="javascript:void(0)">删除</a>
+                                <a class="remove_item" data-rec-id="1301026" @click="del(k)" href="javascript:void(0)">删除</a>
                             </td>
                         </tr>
 
@@ -207,7 +206,14 @@
             axios.get('/api/APi/cart').then(function (response) {
                carts.cart = response.data;
             })
-        }
+        },
+       methods:{
+            del(k){
+                axios.get('/api/APi/delete?sid='+k).then(function (response) {
+                    carts.cart = response.data;
+                })
+            }
+       }
 
 
     })
