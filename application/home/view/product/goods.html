@@ -70,7 +70,7 @@
 
                         <span class="fl pro-title dib f-666" >数量：</span>
                         <div class="dib count-box">
-                            <input type="number" v-model="goods.num" value="1" min="1" max="" >
+                            <input type="number" v-model="goods.num" value="1" min="1" :max="totalNum" >
                         </div>
                     </div>
                     <div class="attr-box clear">
@@ -79,8 +79,16 @@
                     <?php endif; ?>
                 </div>
                 <div class=" clear m-t-20 lh1">
+                    <form action="/home/Cart/index" method="post" id="hidden" >
+                        <textarea name="data" style="display: none">{{goods}}</textarea>
+                    </form>
+                    <a href="javascript:void(0)" id="add_to_cart" @click="submits" class="btn-red-single  " style="background-color:#FFD9BC;color: #E5511D;padding: 15px 50px;margin-right: 10px">
+                        立即购买
+                    </a>
 
-                    <a href="javascript:void(0)" id="add_to_cart" class="btn-red-single  " style="background-color:#FFD9BC;color: #E5511D;padding: 15px 50px;margin-right: 10px">立即购买</a>
+
+
+
                     <a href="javascript:void(0)" @click="commits" id="product_diy" class="btn-red-single  " >加入购物车</a>
                 </div>
                 <div class="btn-others">
@@ -157,14 +165,24 @@
             commits(){
                 if(this.goods['options'] == ''){
                     alert('请选择商品的款式');
+
+                    // 判断商品数量
+
                 }else {
                     data = JSON.stringify(this.goods);
-                    console.log()
                     axios.post('/home/cart/add',{data:data}).then(function (response) {
-
+                        // 将购物车数据 返回
                     })
                 }
 
+
+            },
+            submits(){
+                if(this.goods['options'] == ''){
+                    alert('请选择商品款式')
+                }else {
+                    $('#hidden').submit();
+                }
 
             }
         },
