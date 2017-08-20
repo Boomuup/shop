@@ -48,10 +48,13 @@ class Cart extends Controller {
     public function list(){
         $data = Session::get('cart.goods');
         // 将商品信息添加
-        foreach ($data as $k=>$v){
-            $info = Goods::get($v['id'])->toArray();
-            $data[$k]['info'] = $info;
+        if(!is_null($data)){
+            foreach ($data as $k=>$v){
+                $info = Goods::get($v['id'])->toArray();
+                $data[$k]['info'] = $info;
+            }
         }
+
         $data = json_encode($data,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
         return view('',compact('data'));
     }

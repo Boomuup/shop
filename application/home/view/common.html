@@ -67,21 +67,30 @@
                     </dl>
                     {/if}
                 </div>
-                {block name="cart"}
-                    <div class="user-box user-cart dn" id="nav_cart_box">
+                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;">
                     <i class="icon-bgr icon-operate"></i>
                     <table class="f12">
+                        <tbody>
+                        <tr class="gds" v-for="v in cart">
+
+                            <td class="overtxt" width="50%">
+                                <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
+                            </td>
+                            <td class="tr" width="25%">X{{v['num']}}<br>￥{{v['price']}}<br>
+                                <a class="remove_item" data-rec-id="1301026" href="javascript:void(0)">删除</a>
+                            </td>
+                        </tr>
+
                         <tr>
                             <td colspan="3">
                                 <div class="clear m-t-10">
-                                    <span class="fl">共计0件商品<br><b>合计：<span class="f-d93732">0</span>元</b></span>
                                     <a href="/cart.html" class="fr btn-red-sml ani-bg">去购物车结算</a>
                                 </div>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
-                {/block}
             </div>
             <div class="search fr m-t-31">
                 <!--搜索框-->
@@ -187,6 +196,21 @@
 
 <script src="__ZHOME__/js/common.js"></script>
 {block name='footer'}{/block}
+<script>
+   let carts = new Vue({
+        el:'#app',
+        data:{
+            cart:'',
+        },
+        mounted(){
 
+            axios.get('/api/APi/cart').then(function (response) {
+               carts.cart = response.data;
+            })
+        }
+
+
+    })
+</script>
 </body>
 </html>
