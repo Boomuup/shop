@@ -76,7 +76,7 @@
                 <td>￥{$goods['gprice']}</td>
                 <td>
                     <div class="dib count-box">
-                        <a href="javascript:void(0)" @click="reduce" class="icon-bgr icon-sub dib"></a><input type="text" :value="cart['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add" class="icon-bgr icon-add dib"></a>
+                        <a href="javascript:void(0)" @click="reduce" class="icon-bgr icon-sub dib"></a><input type="text" v-model.number="v['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add" class="icon-bgr icon-add dib"></a>
                     </div>
                 </td>
                 <td>￥{$goods['gprice']}</td>

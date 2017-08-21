@@ -76,7 +76,7 @@
                 <td>￥{{v['price']}}</td>
                 <td>
                     <div class="dib count-box">
-                        <a href="javascript:void(0)" @click="reduce(k)" class="icon-bgr icon-sub dib"></a><input type="text" :value="v['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add(k,v['options'][0]['snum'])" class="icon-bgr icon-add dib"></a>
+                        <a href="javascript:void(0)" @click="reduce(k)" class="icon-bgr icon-sub dib"></a><input type="text" readonly  v-model.number="v['num']" class="dib tc icon-number" ><a href="javascript:void(0)" @click="add(k,v['options'][0]['snum'])" class="icon-bgr icon-add dib"></a>
                     </div>
                 </td>
                 <td>{{v['options'][0]['snum']}}</td>

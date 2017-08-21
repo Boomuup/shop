@@ -19,6 +19,12 @@ class User extends Model
 
     // 只读字段  一旦被写入 就不能被修改
     protected $readonly = ['phone'];
+
+    // 关联subgoods 表
+    public function assAddr(){
+        return $this->hasMany(Userinfo::class,'uid');
+    }
+
     /**
      * 用户登陆功能
      * @param $data array 传入数据 这里时post提交过来的用户登陆数据

@@ -4,6 +4,8 @@ namespace app\home\controller;
 
 use app\common\model\Category;
 use think\Controller;
+use app\common\model\User;
+use think\Session;
 
 /**
  *  订单管理
@@ -32,7 +34,20 @@ class Flow extends Controller
      */
     public function index(){
 
+        // 获取地址栏数据
+        // 获取地址栏信息
+        $model = User::get(Session::get('user.user_id'));
+
+        $address = $model->assAddr()->select();
+        if($address){
+            foreach ($address as $k =>$v){
+                $v = $v->toArray();
+                $v['address'] = json_decode($v['address'],true);
+                $address[$k] = $v;
+
+            }
+        }
         $categoryData = $this->categoryData;
-        return view('',compact('categoryData'));
+        return view('',compact('categoryData','address'));
     }
 }

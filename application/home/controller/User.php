@@ -110,10 +110,29 @@ class User extends Controller
      *
      */
     public function address(){
+        $model = UserModel::get(Session::get('user.user_id'));
         if(request()->isPost()){
-            halt(input());
+            $address = json_encode(input(),JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+
+            $res = $model->assAddr()->save(['address'=>$address]);
+            if ($res){
+                $this->success('添加成功');
+            }else{
+                $this->error('添加失败');
+            }
         }
+        // 获取地址栏信息
+        $address = $model->assAddr()->select();
+        if($address){
+           foreach ($address as $k =>$v){
+               $v = $v->toArray();
+               $v['address'] = json_decode($v['address'],true);
+               $address[$k] = $v;
+
+           }
+        }
+
         $categoryData = $this->categoryData;
-        return view('',compact('categoryData'));
+        return view('',compact('categoryData','address'));
     }
 }

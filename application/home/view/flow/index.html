@@ -1,5 +1,9 @@
 {extend name='common' /}
 
+{block name='header'}
+<link rel="stylesheet" href="__ZY__/node_modules/hdjs/css/bootstrap.min.css">
+{/block}
+
 {block name='content'}
 
 <div class="bg-f5f5f5 p-b-10">
@@ -14,32 +18,28 @@
 
 
     <form action="flow.php" method="post" name="theForm" id="theForm" >
-        <input type="hidden" name="step" value="done"/>
-        <input type="hidden" name="chk_code" value="5319902ed64579dab668b620608b172e"/>
+
         <div class="md-order center bg-fff">
             <div class="address clear b-b-3">
-                <span class="title fl f16">收货地址</span>
-                <div class="cont fl" id="address_list">
 
-                    <a href="javascript:void(0)" class="fl addnew"><i class="icon-bgr icon-add1 m-r-8"></i>新增收货地址</a>
-
+                <div class="form-group">
+                    <label for="inputID" class=" title fl f16 ">收货地址:</label>
+                    <div class="col-sm-10">
+                        <select name="name" id="inputID" class="form-control">
+                            {foreach $address as $v}
+                            <option value="{$v['address']['province']}-{$v['address']['city']}-{$v['address']['county']}-{$v['address']['xiangxi']}">{$v['address']['province']}-{$v['address']['city']}-{$v['address']['county']}-{$v['address']['xiangxi']}</option>
+                            {/foreach}
+                        </select>
+                    </div>
                 </div>
             </div>
-            <div class="cards clear b-b-3 rel"><div class="mask dn"></div><i class="icon-gift dn"></i>
-                <span class="title fl f16">包装与贺卡</span>
-                <input type="hidden" id="has_pack" value="1">
-                <div class="cont fl f16" id="card_html"><a href="javascript:void(0)" class="f-b28850" id="edit_card"><i class="icon-bgr icon-edit-card m-r-5"></i>填写贺卡</a><span class="m-l-30">作为礼物送朋友？礼无忧提供免费的包装和贺卡。</span></div>
-            </div>
-            <div class="logistics clear b-b-1 m-x-65 rel"><div class="mask dn"></div>
-                <span class="title fl f16 lh50">配送选项</span>
-                <div class="cont fl tc checkbox" id="shipping_list">
-                </div>
-            </div>
+
             <div class="pay-way clear m-x-65 rel"><div class="mask dn"></div>
                 <span class="title fl lh50 f16">支付方式</span>
                 <div class="cont fl checkbox tc">
-                    <a href="javascript:void(0)" data-js-bind="select_payment" data-pay_id="0" class="focus fl">在线支付</a>
-                    <a href="javascript:void(0)" data-js-bind="select_payment" data-pay_id="3" class="m-l-30 fl payment-cod" style="display:none">货到付款&nbsp;手续费 <span class="f-d93732">¥6.0</span></a></div>
+                    <a href="javascript:void(0)" data-js-bind="select_payment" data-pay_id="0" class="focus fl">货到付款</a>
+                    <a href="javascript:void(0)" data-js-bind="select_payment" data-pay_id="3" class="m-l-30 fl payment-cod" style="display:none">货到付款&nbsp;手续费 <span class="f-d93732">¥6.0</span></a>
+                </div>
             </div>
             <div class="goods-list clear m-x-65 rel"><div class="mask dn"></div>
                 <p class="clear p-b-10"><span class="title f16">商品清单</span><a href="flow.php" class="fr"><i class="icon-bgr icon-arrowL m-r-10"></i>返回购物车修改</a></p>

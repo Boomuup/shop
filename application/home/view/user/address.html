@@ -2,6 +2,8 @@
 
 {block name='header'}
 <link rel="stylesheet" href="__ZHOME__/css/user.css">
+<link rel="stylesheet" href="__ZY__/node_modules/hdjs/css/bootstrap.min.css">
+
 {/block}
 
 {block name='content'}
@@ -25,26 +27,61 @@
             <ul class="tree-list m-t-28">
                 <li><a href="#" class="">我的订单</a></li>
                 <li class="m-t-15"><a href="user.html" >个人信息</a></li>
-                <li><a href="/changepassword.html" class="current">修改密码</a></li>
-                <li><a href="/address.html" class="">我的地址</a></li>
+                <li><a href="/changepassword.html" >修改密码</a></li>
+                <li><a href="/address.html" class="current">我的地址</a></li>
             </ul>
         </div>
         <div class="user-right fr bg-fff">
             <div class="user-title f30 f-666">我的地址薄</div>
             <div class="user-content address-book">
-                <div class="line clear"><a href="javascript:void(0)" class="btn-red-single lh1 fr ani-bg" id="add_new">添加新地址</a></div>
-                <ul class="address-list m-t-20" id="address_list"></ul>
+                <table class="table table-hover" >
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>地址</th>
+                        <th width="100">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {foreach $address as $k=>$v}
+                    <tr>
+                        <td>{$k+1}</td>
+                        <td>{$v['address']['province']}-{$v['address']['city']}-{$v['address']['county']}-{$v['address']['xiangxi']}</td>
+                        <td>
+                            <a href="">编辑</a>
+                            <a href="">删除</a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                    </tbody>
+                </table>
             </div>
-            <form action="" method="post">
-                <div data-toggle="distpicker">
-                    <select name="sheng"></select>
-                    <select name="shi"></select>
-                    <select name="qu"></select>
-                </div>
-                <p>详细地址</p>
-                <textarea name="xiangxi"></textarea>
-                <button type="submit">提交</button>
-            </form>
+            <hr>
+            <h1 class="text-center">地址添加</h1>
+            <hr>
+            <div class="container">
+
+                <form action="" method="post" class="form-inline">
+
+                    <div class="form-group">
+
+                        <div class="col-sm-12" data-toggle="distpicker">
+                            <select name="province" class="form-control"></select>
+                            <select name="city" class="form-control"></select>
+                            <select name="county" class="form-control"></select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label>详细信息：</label>
+                        <textarea required name="xiangxi" class="form-control"  cols="46" rows="3" placeholder="详细信息"></textarea>
+
+                    </div>
+                    <hr>
+                    <button type="submit" class="form-control">提交</button>
+                </form>
+            </div>
+
 
         </div>
     </div>
