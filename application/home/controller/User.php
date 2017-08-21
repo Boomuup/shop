@@ -6,6 +6,7 @@ use think\Controller;
 use app\common\model\User as UserModel;
 use app\common\model\Category;
 use think\Cookie;
+use think\Session;
 
 class User extends Controller
 {
@@ -73,7 +74,15 @@ class User extends Controller
      *  用户修改密码
      */
     public function changePassword(){
-        echo "用户修改密码";
+
+        if(request()->isPost()){
+            $res = (new  UserModel())->changePassword(input('post.'));
+            if(!$res['valid']){
+                $this->error($res['msg']);
+            }else{
+                $this->success($res['msg']);
+            }
+        }
         $categoryData = $this->categoryData;
         return view('',compact('categoryData'));
     }
@@ -82,8 +91,17 @@ class User extends Controller
      *  个人中心
      */
     public function user(){
-
+        if(request()->isPost()){
+            // 验证用户信息 进行存入数据库
+            $res = (new UserModel())->userInfo(input('post.'));
+            // 如果有问题 给用户提示信息 返回原页面
+            if (!$res['valid']){
+                $this->error($res['msg']);
+            }
+        }
+        // 获取用户信息
+        $userInfo = UserModel::where('username',Session::get('user.user_username'))->find();
         $categoryData = $this->categoryData;
-        return view('',compact('categoryData'));
+        return view('',compact('categoryData','userInfo'));
     }
 }

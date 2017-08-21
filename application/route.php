@@ -23,8 +23,9 @@ Route::group(['ext'=>'html'],function(){
     Route::rule('register','home/User/register','GET|POST');
     Route::rule('login','home/User/login','GET|POST');
     Route::get('logout','home/User/logout');
+    Route::rule('changepassword','home/User/changePassword');
     // 个人中心
-    Route::get('user','home/User/user');
+    Route::rule('user','home/User/user');
 });
 
 // 首页路由组

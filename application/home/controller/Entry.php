@@ -5,6 +5,7 @@ namespace app\home\controller;
 use app\common\model\Category;
 use app\common\model\Goods;
 use think\Controller;
+use think\Session;
 
 class Entry extends Controller
 {
@@ -43,7 +44,6 @@ class Entry extends Controller
         $subData = $this->model::where('pid',2)->column('cid');
 
         $teGoodsData = Goods::where('pid','in',$subData)->field('gid,gname,gprice,mprice,cover,click,description')->select();
-
         return view('',compact('categoryData','teGoodsData'));
     }
 
@@ -76,7 +76,7 @@ class Entry extends Controller
         }else{
             // 获取全部商品数据
 
-
+            $pid = $cid;
             $subData = $this->model::where('pid',$cid)->column('cid');
 
             $goodsData = Goods::where('pid','in',$subData)->field('gid,gname,gprice,mprice,cover,click,description')->select();

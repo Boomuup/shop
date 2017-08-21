@@ -16,6 +16,9 @@ class User extends Model
 
     // 开启自动写入时间戳字段
     protected $autoWriteTimestamp = 'datetime';
+
+    // 只读字段  一旦被写入 就不能被修改
+    protected $readonly = ['phone'];
     /**
      * 用户登陆功能
      * @param $data array 传入数据 这里时post提交过来的用户登陆数据
@@ -123,6 +126,51 @@ class User extends Model
         }else{
             return ['valid'=>0,'msg'=>'用户注册失败'];
         }
+
+    }
+
+    // 完善 修改用户信息
+    public function userInfo($data){
+        // 1.引入验证器
+        $validate = Loader::validate('Info');
+        // 2.验证数据 当验证不通过时
+        if (!$validate->check($data)){
+            return ['valid'=>0,'msg'=>$validate->getError()];
+        }
+
+        // 验证  ，邮箱 ，用户名
+        // 验证手机号是否重复
+        $oldUsername = Session::get('user.user_username');
+        $model = User::where('username',$oldUsername)->find();
+
+        $phone = $model->where('is_admin',0)->where('username','NEQ',$oldUsername)->where('phone',$data['phone'])->find();
+        if($phone){
+            return ['valid'=>0,'msg'=>"该手机已被其他用户注册"];
+        }
+
+        $email = $model->where('is_admin',0)->where('username','NEQ',$oldUsername)->where('email',$data['email'])->find();
+        if($email){
+            return ['valid'=>0,'msg'=>"该邮箱已被其他用户使用"];
+        }
+        echo $oldUsername;
+        $username = $model->where('is_admin',0)->where('username',$oldUsername)->select();
+
+
+        if(count($username)>1){
+            return ['valid'=>0,'msg'=>"该昵称你进被使用"];
+        }
+
+        $model->phone = $data['phone'];
+        $model->email = $data['email'];
+        $model->username = $data['username'];
+        //保存数据到数据库
+        $res = $model->save();
+        if ($res){
+            return ['valid'=>1,'msg'=>'修改成功'];
+        }else{
+            return ['valid'=>0,'msg'=>'修改信息失败'];
+        }
+
 
     }
 }

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503277159;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503296722;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -491,7 +491,39 @@
 <script>
     var global_config ='';
 </script>
+<!--vue代码放在上面 不然jquery一下代码回有问题-->
+<script>
+    let carts = new Vue({
+        el:'#app',
+        data:{
+            cart:'',
+        },
+        mounted(){
 
+            axios.get('/api/APi/cart').then(function (response) {
+                carts.cart = response.data;
+            })
+        },
+        methods:{
+            del(k){
+                axios.get('/api/APi/delete?sid='+k).then(function (response) {
+                    carts.cart = response.data;
+                })
+            }
+        },
+        computed:{
+            cartLen(){
+                let sum=0;
+                for (v in this.cart){
+                    sum = sum +1;
+                }
+                return sum;
+            }
+        }
+
+
+    })
+</script>
 <script src="__ZHOME__/js/common.js"></script>
 
 
@@ -515,37 +547,6 @@
 </script>
 
 
-<script>
-   let carts = new Vue({
-        el:'#app',
-        data:{
-            cart:'',
-        },
-        mounted(){
 
-            axios.get('/api/APi/cart').then(function (response) {
-               carts.cart = response.data;
-            })
-        },
-       methods:{
-            del(k){
-                axios.get('/api/APi/delete?sid='+k).then(function (response) {
-                    carts.cart = response.data;
-                })
-            }
-       },
-       computed:{
-           cartLen(){
-               let sum=0;
-               for (v in this.cart){
-                   sum = sum +1;
-               }
-               return sum;
-           }
-       }
-
-
-    })
-</script>
 </body>
 </html>

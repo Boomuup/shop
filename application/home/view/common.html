@@ -193,11 +193,9 @@
 <script>
     var global_config ='';
 </script>
-
-<script src="__ZHOME__/js/common.js"></script>
-{block name='footer'}{/block}
+<!--vue代码放在上面 不然jquery一下代码回有问题-->
 <script>
-   let carts = new Vue({
+    let carts = new Vue({
         el:'#app',
         data:{
             cart:'',
@@ -205,28 +203,33 @@
         mounted(){
 
             axios.get('/api/APi/cart').then(function (response) {
-               carts.cart = response.data;
+                carts.cart = response.data;
             })
         },
-       methods:{
+        methods:{
             del(k){
                 axios.get('/api/APi/delete?sid='+k).then(function (response) {
                     carts.cart = response.data;
                 })
             }
-       },
-       computed:{
-           cartLen(){
-               let sum=0;
-               for (v in this.cart){
-                   sum = sum +1;
-               }
-               return sum;
-           }
-       }
+        },
+        computed:{
+            cartLen(){
+                let sum=0;
+                for (v in this.cart){
+                    sum = sum +1;
+                }
+                return sum;
+            }
+        }
 
 
     })
 </script>
+<script src="__ZHOME__/js/common.js"></script>
+{block name='footer'}
+
+{/block}
+
 </body>
 </html>
