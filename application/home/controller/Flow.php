@@ -52,13 +52,6 @@ class Flow extends Controller
             }
         }
         $goodsData = Session::get('cart');
-        // 将商品信息添加
-        if(!is_null($goodsData)){
-            foreach ($goodsData['goods'] as $k=>$v){
-                $info = Goods::get($v['id'])->toArray();
-                $goodsData['goods'][$k]['info'] = $info;
-            }
-        }
 
         if (request()->isPost()){
             $model = new Order();
@@ -70,6 +63,7 @@ class Flow extends Controller
             $model->username = input('post.username');
             $model->user_id = Session::get('user.user_id');
             $model->note = input('post.note');
+
             $model->goods_info = json_encode($goodsData,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
             $res = $model->save();
             if($res){
@@ -88,6 +82,13 @@ class Flow extends Controller
             }
         }
 
+        // 将商品信息添加
+        if(!is_null($goodsData)){
+            foreach ($goodsData['goods'] as $k=>$v){
+                $info = Goods::get($v['id'])->toArray();
+                $goodsData['goods'][$k]['info'] = $info;
+            }
+        }
 
         $categoryData = $this->categoryData;
         return view('',compact('categoryData','address','goodsData'));

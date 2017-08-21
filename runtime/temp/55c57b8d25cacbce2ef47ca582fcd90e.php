@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503302712;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503339957;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -52,7 +52,7 @@
                             <?php echo  session('user.user_username') ?>
                         </dt>
                         <dd class="lh2"><a href="/user.html">个人中心</a></dd>
-                        <dd class="lh2"><a href="#">我的订单</a></dd>
+                        <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
                         <dd class="lh2"><a href="#">我的收藏</a></dd>
                         <dd class="lh2"><a href="/logout.html">退出登陆</a></dd>
                     </dl>
@@ -63,7 +63,7 @@
                             <a class="f-b28850" href="/register.html">注册</a>
                         </dt>
                         <dd class="lh2"><a href="/user.html">个人中心</a></dd>
-                        <dd class="lh2"><a href="#">我的订单</a></dd>
+                        <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
                         <dd class="lh2"><a href="#">我的收藏</a></dd>
                     </dl>
                     <?php endif; ?>

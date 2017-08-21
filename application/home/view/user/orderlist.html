@@ -1,0 +1,87 @@
+{extend name='common' /}
+
+{block name='header'}
+<link rel="stylesheet" href="__ZHOME__/css/user.css">
+
+{/block}
+
+{block name='content'}
+
+<div class="currentloc bg-f5f5f5 clear">
+    <div class="center f12">
+        <div class="fl"><a href="#">首页</a><span>/</span>个人信息</div>
+        <a href="#" class="fr qqbtn tc f-666" target="_blank">QQ在线交谈</a>
+        <span class="fr f-666">服务热线：400-611-2156 (8:00－24:00)</span>
+        <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
+    </div>
+</div>
+
+<div class="md-account clear bg-f5f5f5">
+    <div class="center">
+        <div class="user-left fl bg-fff">
+            <p class="tc user-exit">
+                <a class="icon-bgr icon-account" title="退出" href="/logout.html"></a><br>
+                <span class="dib p-t-10"><?php echo  session('user.user_username') ?></span>
+            </p>
+            <ul class="tree-list m-t-28">
+                <li><a href="/orderlist.html" class="current">我的订单</a></li>
+                <li class="m-t-15"><a href="user.html" >个人信息</a></li>
+                <li><a href="/changepassword.html" >修改密码</a></li>
+                <li><a href="/address.html" >我的地址</a></li>
+            </ul>
+        </div>
+        <div class="user-right fr bg-fff">
+            <div class="user-title">
+                <span class="f30 f-666">订单管理</span>
+            </div>
+            <table class="table table-hover" border="1" style="text-align: center">
+                <thead>
+                <tr style="height: 40px">
+                    <th>id</th>
+                    <th>订单号</th>
+                    <th>购买商品</th>
+                    <th>商品价格</th>
+                </tr>
+                </thead>
+                <tbody>
+                {foreach $orderInfo as $k=>$v}
+                <tr  style="height: 40px">
+                    <td>{$k+1}</td>
+                    <td>{$v['order_name']}</td>
+                    <td>
+                    <?php
+                    $data = json_decode($v['goods_info'],true);
+                    foreach($data['goods'] as $k){
+                        echo $k['name'].' == '.$k['num'].' * '.$k['price'].'<br>';
+
+                        }
+                    ?>
+
+                    </td>
+                    <td>{$v['price']}</td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+{/block}
+
+{block name='footer'}
+
+<div class="currentloc bg-f5f5f5 clear">
+    <div class="center f12">
+        <div class="fl"><a href="/">首页</a><span>/</span>个人信息</div>
+        <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006112156&cref=http://www.liwuyou.com/&ref=&f=1&ty=1&ap=&as=" class="fr qqbtn tc f-666" target="_blank">QQ在线交谈</a>
+        <span class="fr f-666">服务热线：400-611-2156 (8:00－24:00)</span>
+        <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
+    </div>
+</div>
+
+<script src="__ZHOME__/js/distpicker.data.js"></script>
+<script src="__ZHOME__/js/distpicker.js"></script>
+
+{/block}

@@ -28,6 +28,8 @@ Route::group(['ext'=>'html'],function(){
     Route::rule('user','home/User/user');
     // 个人地址管理
     Route::rule('address','home/User/address');
+    // 订单列表
+    Route::get('orderlist','home/User/orderList');
 });
 
 // 首页路由组

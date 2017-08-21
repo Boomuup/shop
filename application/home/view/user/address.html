@@ -1,9 +1,29 @@
 {extend name='common' /}
 
 {block name='header'}
-<link rel="stylesheet" href="__ZHOME__/css/user.css">
-<link rel="stylesheet" href="__ZY__/node_modules/hdjs/css/bootstrap.min.css">
 
+
+<link rel="stylesheet" href="__ZHOME__/css/user.css">
+<style>
+    .form-control {
+        display: inline-block;
+        width: 30%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+</style>
 {/block}
 
 {block name='content'}
@@ -25,7 +45,7 @@
                 <span class="dib p-t-10"><?php echo  session('user.user_username') ?></span>
             </p>
             <ul class="tree-list m-t-28">
-                <li><a href="#" class="">我的订单</a></li>
+                <li><a href="/orderlist.html" class="">我的订单</a></li>
                 <li class="m-t-15"><a href="user.html" >个人信息</a></li>
                 <li><a href="/changepassword.html" >修改密码</a></li>
                 <li><a href="/address.html" class="current">我的地址</a></li>
@@ -34,10 +54,10 @@
         <div class="user-right fr bg-fff">
             <div class="user-title f30 f-666">我的地址薄</div>
             <div class="user-content address-book">
-                <table class="table table-hover" >
+                <table border="1" style="text-align: center">
                     <thead>
                     <tr>
-                        <th>id</th>
+                        <th height="40">id</th>
                         <th>地址</th>
                         <th width="100">操作</th>
                     </tr>
@@ -45,7 +65,7 @@
                     <tbody>
                     {foreach $address as $k=>$v}
                     <tr>
-                        <td>{$k+1}</td>
+                        <td height="50">{$k+1}</td>
                         <td>{$v['address']['province']}-{$v['address']['city']}-{$v['address']['county']}-{$v['address']['xiangxi']}</td>
                         <td>
                             <a href="">编辑</a>
@@ -56,14 +76,14 @@
                     </tbody>
                 </table>
             </div>
-            <hr>
-            <h1 class="text-center">地址添加</h1>
-            <hr>
+
+            <h1 class="text-center" style="margin: 30px 0 20px">地址添加</h1>
+
             <div class="container">
 
                 <form action="" method="post" class="form-inline">
 
-                    <div class="form-group">
+                    <div class="form-group" style="margin-bottom: 30px">
 
                         <div class="col-sm-12" data-toggle="distpicker">
                             <select name="province" class="form-control"></select>
@@ -71,14 +91,14 @@
                             <select name="county" class="form-control"></select>
                         </div>
                     </div>
-                    <hr>
+
                     <div class="form-group">
-                        <label>详细信息：</label>
-                        <textarea required name="xiangxi" class="form-control"  cols="46" rows="3" placeholder="详细信息"></textarea>
+                        <span style="display: inline-block;height: 40px;position: relative;top: -20px">详细信息：</span>
+                        <textarea required name="xiangxi" class="form-control"  style="width: 400px" placeholder="详细信息"></textarea>
 
                     </div>
-                    <hr>
-                    <button type="submit" class="form-control">提交</button>
+
+                    <button type="submit" class="form-control" style="color: #00a0e9;margin-left: 70px">提交</button>
                 </form>
             </div>
 
