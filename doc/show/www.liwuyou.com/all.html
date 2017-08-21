@@ -1,0 +1,549 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta name="Generator" content="www.liwuyou.com " />
+    <meta charset="utf-8">
+    <meta name="author" content="zhaoyulong">
+    <meta name="renderer" content="webkit"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>创意生活 礼无忧网</title>
+    
+<!--[if lt IE 8]>
+<script>
+setTimeout(function(){  
+   window.location.href = '/upgrade.html';  
+},10);
+</script>
+<![endif]-->
+    <meta name="Keywords" content="办公文具，数码配件，电子产品，智能产品，音响，加湿器" />
+	<meta name="Description" content="打破一成不变的办公设计，办公桌上的时尚和创意，独具风格的智能科技电子，给工作带来不一样的色彩，丰富办公环境，礼无忧网精心挑选各式各样的数码办公产品，奉献不一样的精彩。" />
+    <link type="text/css" rel="stylesheet" href="css/base.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/idialog.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="header">
+	<div class="center">
+    	<div class="logo icon-bgr icon-logo ani-bg fl m-t-17"><a href="/">礼无忧首页</a></div>
+        <div class="category tc fl" id="category">
+        	<a href="#" class="f16 lh2">礼物分类<i class="icon-bgr icon-list m-l-5"></i></a>
+        	<div id="category_pop" class="category-pop tc dn">
+        	            <a href="category.php?id=385">少女心饰</a>
+                        <a href="category.php?id=386">萌萌美物</a>
+                        <a href="category.php?id=387">为爱停留</a>
+                        <a href="category.php?id=388">潮流时尚</a>
+                        <a href="category.php?id=389">科技达人</a>
+                        <a href="category.php?id=390">幸福烙印</a>
+                        <a href="category.php?id=391">爱情保鲜</a>
+                        <a class="last">&nbsp;</a>
+            </div>
+        </div>
+        <div class="nav fl f16 lh2 m-t-28 rel">
+        <a class="fst" id="gift_guide">送礼导航</a><!--
+        --><a href="/category.php?id=234">创意礼物</a><!--
+        --><a href="/search.php?page=1&sort=goods_id&order=DESC#goods_list">新品上架</a><!--
+        --><a href="/category.php?id=127">七夕情人节礼物</a><!--
+        <img src="picture/christ_icon.png" class="dib christ-icon">--></div>
+        
+        <div class="operate fr m-t-31 rel" id="user_operate">
+        	<a href="user.php" id="nav_user"><i class="icon-bgr icon-user m-7 ani-bg"></i></a>
+            <a href="flow.php" class="m-l-5" id="nav_cart"><i class="icon-bgr icon-cart ani-bg"></i><span class="cart-count" id="cart_count">0</span></a>
+            <div class="user-box user-signin dn" id="nav_user_box">
+            	<i class="icon-bgr icon-operate"></i>
+                <dl class="tc">
+                                <dt class="f-b28850"><a class="f-b28850" href="/user.php?act=login">登录</a> / <a class="f-b28850" href="/user.php?act=register">注册</a></dt>
+                <dd class="lh2"><a href="/history.php">浏览历史</a></dd>
+                <dd class="lh2"><a href="/user.php?act=order_list">我的订单</a></dd>
+                <dd class="lh2"><a href="/user.php?act=collection_list">我的收藏</a></dd>
+              
+                                </dl>
+            </div>
+            <div class="user-box user-cart dn" id="nav_cart_box">
+            	<i class="icon-bgr icon-operate"></i>
+                <table class="f12">
+                <!-- <tr class="gds"><td width="25%"><a href="javascript:void(0)"><img src="picture/test_cart.png"></a></td><td class="overtxt" width="50%"><a href="javascript:void(0)">我心守护 礼物颜色:红色</a><br>个性定制：直接购买</td><td class="tr" width="25%">X1<br>¥199.0<br><a href="javascript:void(0)">删除</a></td></tr>
+                <tr class="gds"><td width="25%"><a href="javascript:void(0)"><img src="picture/test_cart.png"></a></td><td class="overtxt" width="50%"><a href="javascript:void(0)">我心守护 礼物颜色:红色</a><br>个性定制：直接购买</td><td class="tr" width="25%">X1<br>¥199.0<br><a href="javascript:void(0)">删除</a></td></tr>
+                 -->
+                 <tr><td colspan="3"><div class="clear m-t-10"><span class="fl">共计0件商品<br><b>合计：<span class="f-d93732">0</span>元</b></span><a href="flow.php" class="fr btn-red-sml ani-bg">去购物车结算</a></div></td></tr>
+                </table>
+            </div>
+        </div>
+        <div class="search fr m-t-31">
+        <input type="text" name="search" id="head-search"><a href="javascript:void(0)" class="icon-bgr icon-search m-l-5" id="head-searchbtn"></a>
+        </div>
+    </div>
+</div>
+<div class="query-box query-box-nav dn" id="gift_guide_box">
+    <div class="center">
+        <div class="clear">
+            <div class="query fl f12">
+            <dl class="clear b-b-1">
+                <dt class="fl p-y-10">送给谁：</dt>
+                <dd class="fl p-y-10">
+                                        <a href="javascript:void(0)" class="group-who">不限</a>
+                                        <a href="javascript:void(0)" class="group-who">公主女票</a>
+                                        <a href="javascript:void(0)" class="group-who">欧巴男票</a>
+                                        <a href="javascript:void(0)" class="group-who">潮爸辣妈</a>
+                                        <a href="javascript:void(0)" class="group-who">兄弟闺蜜</a>
+                                        <a href="javascript:void(0)" class="group-who">熊孩子</a>
+                                        <a href="javascript:void(0)" class="group-who">生意伙伴</a>
+                                        <a href="javascript:void(0)" class="group-who">致谢恩师</a>
+                                        <a href="javascript:void(0)" class="group-who"></a>
+                                    </dd>
+            </dl>
+            <dl class="clear">
+                <dt class="fl p-y-10">为啥送：</dt>
+                <dd class="fl p-y-10">
+                                        <a href="javascript:void(0)" class="group-why">不限</a>
+                                        <a href="javascript:void(0)" class="group-why">表白撩妹</a>
+                                        <a href="javascript:void(0)" class="group-why">过生日</a>
+                                        <a href="javascript:void(0)" class="group-why">圣诞节</a>
+                                        <a href="javascript:void(0)" class="group-why">情人节</a>
+                                        <a href="javascript:void(0)" class="group-why">去求婚</a>
+                                        <a href="javascript:void(0)" class="group-why">纪念日</a>
+                                        <a href="javascript:void(0)" class="group-why">想送任性</a>
+                                    </dd>
+            </dl>
+            <!--<dl class="clear b-b-1"><dt class="fl p-y-10">送给谁：</dt><dd class="fl p-y-10"><a href="javascript:void(0)" class="focus">女朋友／老婆</a><a href="javascript:void(0)">男朋友／老公</a><a href="javascript:void(0)">父母</a><a href="javascript:void(0)">长辈</a><a href="javascript:void(0)">客户</a><a href="javascript:void(0)">老师</a><a href="javascript:void(0)">好基友</a><a href="javascript:void(0)">闺蜜</a></dd></dl>-->
+            </div>
+            <!--<span class="fr f16 f-808080 m-t-17 m-r-60">全国8000个城市<br>3小时免费送达</span>-->
+        </div>
+        <div class="btnbox"><a href="javascript:void(0)" class="f12 btn-red-sml ani-bg navigation-search">搜索</a></div>
+    </div>
+</div>
+<div class="currentloc bg-f5f5f5 clear">
+    <div class="center f12">
+    	<div class="fl"><a href="/">首页</a><span>/</span><a href="/category.php?id=389">礼物分类</a><span>/</span>科技达人</div>
+        <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006112156&cref=http://www.liwuyou.com/&ref=&f=1&ty=1&ap=&as=" class="fr qqbtn tc f-666" target="_blank">QQ在线交谈</a>
+        <span class="fr f-666">服务热线：400-611-2156 (8:00－24:00)</span>
+        <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
+    </div>
+</div>
+<div class="query-box query-box-list">
+<div class="center">
+    <div class="clear">
+        <div class="query fl rel">
+        <dl class="clear">
+	        <dt class="fl p-l-20 p-y-20">分类&nbsp;:</dt>
+	        <dd class="fl p-y-20">
+		        <a class="focus">全部</a>	   				   			<a href="category.php?id=416&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&sort=most_buy&order=DESC">音响</a>	   				   			<a href="category.php?id=417&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&sort=most_buy&order=DESC">笔</a>	   				   			<a href="category.php?id=418&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&sort=most_buy&order=DESC">移动电源</a>	   				   			<a href="category.php?id=419&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&sort=most_buy&order=DESC">加湿器</a>	   				   			<a href="category.php?id=420&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&sort=most_buy&order=DESC">其他</a>	   					    </dd>
+        </dl>
+        <dl class="clear b-t-1">
+        	<dt class="fl p-l-20 p-y-20">价格&nbsp;:</dt>
+	        <dd class="fl p-y-20">
+								   <a class="focus">全部</a>				   <a href="category.php?id=389&object_cat=0&environment_cat=0&choice_cat=0&min=0&max=100&sort=most_buy&order=DESC">100以下</a>				   <a href="category.php?id=389&object_cat=0&environment_cat=0&choice_cat=0&min=100&max=300&sort=most_buy&order=DESC">100-300</a>				   <a href="category.php?id=389&object_cat=0&environment_cat=0&choice_cat=0&min=300&max=500&sort=most_buy&order=DESC">300-500</a>				   <a href="category.php?id=389&object_cat=0&environment_cat=0&choice_cat=0&min=500&max=1000&sort=most_buy&order=DESC">500-1000</a>				   <a href="category.php?id=389&object_cat=0&environment_cat=0&choice_cat=0&min=1000&max=0&sort=most_buy&order=DESC">1000以上</a>						    </dd>
+        </dl>
+        <!-- <div class="query-more dn">
+        <dl class="clear b-t-1"><dt class="fl p-l-20 p-y-20">分类&nbsp;:</dt><dd class="fl p-y-20"><a href="javascript:void(0)" class="focus">女朋友／老婆</a><a href="javascript:void(0)">男朋友／老公</a><a href="javascript:void(0)">父母</a><a href="javascript:void(0)">长辈</a><a href="javascript:void(0)">客户</a><a href="javascript:void(0)">老师</a><a href="javascript:void(0)">好基友</a><a href="javascript:void(0)">闺蜜</a></dd></dl>
+        <dl class="clear b-t-1"><dt class="fl p-l-20 p-y-20">价格&nbsp;:</dt><dd class="fl p-y-20"><a href="javascript:void(0)">生日</a><a href="javascript:void(0)">情人节</a><a href="javascript:void(0)">求婚</a><a href="javascript:void(0)">表白</a><a href="javascript:void(0)" class="focus">纪念日</a><a href="javascript:void(0)">随便送送</a></dd></dl>
+        </div>
+        <a href="javascript:void(0)" id="more_btn">更多<i class="icon-bgr icon-arrowD"></i></a> -->
+        </div>
+        
+    </div>
+</div>
+</div>
+<div class="cat-box">
+	<div class="center">
+    	<div class="cat-title clear p-y-20">
+        	<div class="sorts fl">
+                <a href="category.php?id=389&amp;object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&amp;page=1&amp;sort=most_buy" class="dib  focus ">畅销</a><span class="dib f-d4d4c7">｜</span>
+                <a href="category.php?id=389&amp;object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&amp;page=1&amp;sort=goods_id" class="dib ">最新</a><span class="dib f-d4d4c7">｜</span>
+                <a href="category.php?id=389&amp;object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&amp;page=1&amp;sort=shop_price&amp;order=ASC" class="dib ">价格从低到高</a><span class="dib f-d4d4c7">｜</span>
+                <a href="category.php?id=389&amp;object_cat=0&environment_cat=0&choice_cat=0&min=0&max=0&amp;page=1&amp;sort=shop_price&amp;order=DESC" class="dib ">价格从高到低</a>
+            </div>
+            <div class="filters fr"><a class="dib m-r-5 tc f12 filter-special" data-param="special" href="javascript:void(0)"></a><span class="dib m-r-40">仅显示特价商品</span><a class="dib m-r-5 tc f12 filter-diy" href="javascript:void(0)" data-param="diy"></a><span class="dib">仅显示可定制商品</span></div>
+        </div>
+        <ul class="cat-list clear">
+        	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow diy-icon rel ">
+                		        	<a href="goods.php?id=3821" target="_blank" class="img-link"><img src="picture/3821_p_1493880531516.jpg!220" data-normal-img="http://img2.liwuyou.com/images/201705/source_img/3821_P_1493880531516.JPG!220" data-diy-img="http://img3.liwuyou.com/images/201705/source_img/3821_P_1493965172157.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3821" target="_blank" title="檬檬的心情">檬檬的心情</a></p>
+		        	<p>￥49.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3795" target="_blank" class="img-link"><img src="picture/3795_p_1484801780514.jpg!220" data-normal-img="http://img5.liwuyou.com/images/201701/source_img/3795_P_1484801780514.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201701/source_img/3795_P_1484802115281.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3795" target="_blank" title="爱的陪伴">爱的陪伴</a></p>
+		        	<p>￥158.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">5人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3792" target="_blank" class="img-link"><img src="picture/3792_p_1481705912435.jpg!220" data-normal-img="http://img1.liwuyou.com/images/201612/source_img/3792_P_1481705912435.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201612/source_img/3792_P_1481705913223.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3792" target="_blank" title="繁华知音">繁华知音</a></p>
+		        	<p>￥299.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">2人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3781" target="_blank" class="img-link"><img src="picture/3781_p_1479465105564.jpg!220" data-normal-img="http://img5.liwuyou.com/images/201611/source_img/3781_P_1479465105564.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201611/source_img/3781_P_1479722109533.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3781" target="_blank" title="萌宠化妆镜">萌宠化妆镜</a></p>
+		        	<p>￥148.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">6人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow  rel ">
+                		        	<a href="goods.php?id=3823" target="_blank" class="img-link"><img src="picture/3823_p_1494919501124.jpg!220" data-normal-img="http://img5.liwuyou.com/images/201705/source_img/3823_P_1494919501124.jpg!220" data-diy-img="http://img5.liwuyou.com/images/201705/source_img/3823_P_1494919501124.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3823" target="_blank" title="七彩灯泡">七彩灯泡</a></p>
+		        	<p>￥48.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow  rel ">
+                	        		<a href="goods.php?id=3822" target="_blank" class="img-link"><img src="picture/3822_p_1494903420078.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201705/source_img/3822_P_1494903420078.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201705/source_img/3822_P_1494903420078.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3822" target="_blank" title="旅途伴侣">旅途伴侣</a></p>
+		        	<p>￥138.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=1009" target="_blank" class="img-link"><img src="picture/1009_p_1479795514907.jpg!220" data-normal-img="http://img3.liwuyou.com/images/201611/source_img/1009_P_1479795514907.jpg!220" data-diy-img="http://img3.liwuyou.com/images/201611/source_img/1009_P_1479795521787.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=1009" target="_blank" title="文化精髓--宝珠笔">文化精髓--宝珠笔</a></p>
+		        	<p>￥119.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">73人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3834" target="_blank" class="img-link"><img src="picture/3834_p_1497585873767.jpg!220" data-normal-img="http://img3.liwuyou.com/images/201706/source_img/3834_P_1497585873767.jpg!220" data-diy-img="http://img1.liwuyou.com/images/201706/source_img/3834_P_1497592414170.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3834" target="_blank" title="为爱相守">为爱相守</a></p>
+		        	<p>￥119.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow diy-icon rel ">
+                		        	<a href="goods.php?id=3833" target="_blank" class="img-link"><img src="picture/3833_p_1497513168166.png!220" data-normal-img="http://img2.liwuyou.com/images/201706/source_img/3833_P_1497513168166.png!220" data-diy-img="http://img3.liwuyou.com/images/201706/source_img/3833_P_1497521063157.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3833" target="_blank" title="小水怪保温杯">小水怪保温杯</a></p>
+		        	<p>￥269.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow  rel ">
+                	        		<a href="goods.php?id=3824" target="_blank" class="img-link"><img src="picture/3824_p_1494991077653.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201705/source_img/3824_P_1494991077653.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201705/source_img/3824_P_1494991077653.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3824" target="_blank" title="爱就在一起">爱就在一起</a></p>
+		        	<p>￥218.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3800" target="_blank" class="img-link"><img src="picture/3800_p_1487574028443.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201702/source_img/3800_P_1487574028443.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201702/source_img/3800_P_1487574027571.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3800" target="_blank" title="萌呆木鸡">萌呆木鸡</a></p>
+		        	<p>￥188.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">1人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3794" target="_blank" class="img-link"><img src="picture/3794_p_1481880843292.jpg!220" data-normal-img="http://img3.liwuyou.com/images/201612/source_img/3794_P_1481880843292.jpg!220" data-diy-img="http://img3.liwuyou.com/images/201612/source_img/3794_P_1481880844117.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3794" target="_blank" title="无忧生活">无忧生活</a></p>
+		        	<p>￥188.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow diy-icon rel ">
+                		        	<a href="goods.php?id=3789" target="_blank" class="img-link"><img src="picture/3789_p_1480063612060.jpg!220" data-normal-img="http://img1.liwuyou.com/images/201611/source_img/3789_P_1480063612060.jpg!220" data-diy-img="http://img3.liwuyou.com/images/201611/source_img/3789_P_1480069634902.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3789" target="_blank" title="萌宠暖手宝">萌宠暖手宝</a></p>
+		        	<p>￥108.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">6人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3788" target="_blank" class="img-link"><img src="picture/3788_p_1480053441060.jpg!220" data-normal-img="http://img1.liwuyou.com/images/201611/source_img/3788_P_1480053441060.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201611/source_img/3788_P_1480069891111.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3788" target="_blank" title="圆圆的温暖">圆圆的温暖</a></p>
+		        	<p>￥148.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">4人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3787" target="_blank" class="img-link"><img src="picture/3787_p_1479803174459.jpg!220" data-normal-img="http://img5.liwuyou.com/images/201611/source_img/3787_P_1479803174459.jpg!220" data-diy-img="http://img3.liwuyou.com/images/201611/source_img/3787_P_1479803006572.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3787" target="_blank" title="简约灯">简约灯</a></p>
+		        	<p>￥68.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">2人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3786" target="_blank" class="img-link"><img src="picture/3786_p_1480924293263.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201612/source_img/3786_P_1480924293263.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201612/source_img/3786_P_1480924293613.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3786" target="_blank" title="月亮精灵">月亮精灵</a></p>
+		        	<p>￥218.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">1人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow  rel ">
+                		        	<a href="goods.php?id=3785" target="_blank" class="img-link"><img src="picture/3785_p_1480650640128.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201612/source_img/3785_P_1480650640128.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201612/source_img/3785_P_1480650640128.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3785" target="_blank" title="无限热爱">无限热爱</a></p>
+		        	<p>￥299.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">3人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3783" target="_blank" class="img-link"><img src="picture/3783_p_1484822020971.jpg!220" data-normal-img="http://img2.liwuyou.com/images/201701/source_img/3783_P_1484822020971.jpg!220" data-diy-img="http://img1.liwuyou.com/images/201701/source_img/3783_P_1484823673040.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3783" target="_blank" title="音律晚安灯 ">音律晚安灯 </a></p>
+		        	<p>￥359.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">4人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3780" target="_blank" class="img-link"><img src="picture/3780_p_1481697322327.jpg!220" data-normal-img="http://img3.liwuyou.com/images/201612/source_img/3780_P_1481697322327.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201612/source_img/3780_P_1481697325881.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3780" target="_blank" title="暖暖包">暖暖包</a></p>
+		        	<p>￥98.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">无人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3778" target="_blank" class="img-link"><img src="picture/3778_p_1479117315178.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201611/source_img/3778_P_1479117315178.JPG!220" data-diy-img="http://img5.liwuyou.com/images/201611/source_img/3778_P_1479718199124.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3778" target="_blank" title="一贝子爱你">一贝子爱你</a></p>
+		        	<p>￥98.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">5人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow diy-icon rel ">
+                		        	<a href="goods.php?id=3773" target="_blank" class="img-link"><img src="picture/3773_p_1479874615203.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201611/source_img/3773_P_1479874615203.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201611/source_img/3773_P_1479718969601.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3773" target="_blank" title="忠犬小白">忠犬小白</a></p>
+		        	<p>￥128.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">5人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3770" target="_blank" class="img-link"><img src="picture/3770_p_1474939573730.jpg!220" data-normal-img="http://img1.liwuyou.com/images/201609/source_img/3770_P_1474939573730.JPG!220" data-diy-img="http://img3.liwuyou.com/images/201609/source_img/3770_P_1474947537147.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3770" target="_blank" title="温暖你星窝">温暖你星窝</a></p>
+		        	<p>￥98.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">5人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3566" target="_blank" class="img-link"><img src="picture/3566_p_1479804459035.jpg!220" data-normal-img="http://img1.liwuyou.com/images/201611/source_img/3566_P_1479804459035.jpg!220" data-diy-img="http://img5.liwuyou.com/images/201611/source_img/3566_P_1479804320779.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3566" target="_blank" title="小小蛮腰-移动电源">小小蛮腰-移动电源</a></p>
+		        	<p>￥49.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">4人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=3495" target="_blank" class="img-link"><img src="picture/3495_p_1411700594366.jpg!220" data-normal-img="http://img2.liwuyou.com/images/201409/source_img/3495_P_1411700594366.jpg!220" data-diy-img="http://img1.liwuyou.com/images/201611/source_img/3495_P_1479784694765.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3495" target="_blank" title="巨无霸移动电源">巨无霸移动电源</a></p>
+		        	<p>￥168.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">10人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-t-20 ani-bd-shadow diy-icon rel ">
+                		        	<a href="goods.php?id=3352" target="_blank" class="img-link"><img src="picture/3352_p_1473152987076.jpg!220" data-normal-img="http://img2.liwuyou.com/images/201609/source_img/3352_P_1473152987076.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201611/source_img/3352_P_1479788560811.jpg!220" class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=3352" target="_blank" title="蘑菇净化台灯">蘑菇净化台灯</a></p>
+		        	<p>￥128.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">21人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow  rel ">
+                	        		<a href="goods.php?id=1887" target="_blank" class="img-link"><img src="picture/1887_g_1340837813906.jpg!220" data-normal-img="http://img2.liwuyou.com/images/201206/source_img/1887_G_1340837813906.jpg!220" data-diy-img="http://img2.liwuyou.com/images/201206/source_img/1887_G_1340837813906.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=1887" target="_blank" title="水晶触控笔">水晶触控笔</a></p>
+		        	<p>￥115.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">9人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow  rel ">
+                	        		<a href="goods.php?id=1541" target="_blank" class="img-link"><img src="picture/1541_p_1479795093349.jpg!220" data-normal-img="http://img5.liwuyou.com/images/201611/source_img/1541_P_1479795093349.jpg!220" data-diy-img="http://img5.liwuyou.com/images/201611/source_img/1541_P_1479795093349.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=1541" target="_blank" title="卓尔不群-派克宝...">卓尔不群-派克宝...</a></p>
+		        	<p>￥859.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><span class="fr">4人评价</span></p>
+	        	</li>
+	                	        	        	<li class="fl p-30 m-l-20 m-t-20 ani-bd-shadow diy-icon rel ">
+                	        		<a href="goods.php?id=1487" target="_blank" class="img-link"><img src="picture/1487_p_1361987045018.jpg!220" data-normal-img="http://img4.liwuyou.com/images/201302/source_img/1487_P_1361987045018.jpg!220" data-diy-img="http://img4.liwuyou.com/images/201302/source_img/1487_P_1361987045018.jpg!220"  class="normalpic focus" /></a>
+		        	<p class="overtxt m-t-20 cat-name"><a href="goods.php?id=1487" target="_blank" title="祝福伴随你（钥匙...">祝福伴随你（钥匙...</a></p>
+		        	<p>￥59.0</p>
+		        	<p class="f12 f-666 tr m-t-20 clear com-diy"><a href="javascript:void(0)" class="fl can-diy">可定制</a><span class="fr">100人评价</span></p>
+	        	</li>
+	                        </ul>
+        <div class="pages tc p-y-40">
+            <a class="prev icon-bgr icon-page-l" href=""></a>
+                        <a href="category.php?id=389&environment_cat=0&object_cat=0&choice_cat=0&sort=most_buy&order=DESC&min=0&max=0&page=1" class="current">1</a>
+                        <a class="next icon-bgr icon-page-r" href=""></a>
+        </div>
+    </div>
+    <div class="cat_article center bg-fff clear m-t-31 rel"><a href="javascript:void(0)" id="more" class="more">查看更多<i class="icon-bgr icon-seo-down m-l-5"></i></a>
+    	<div class="clear">
+        <div class="tit tc fl"><p class="f22 lh1">送礼策划</p><p class="m-t-15"><img src="picture/gifts.png"></p></div>
+        <div class="cont fr">
+            <h1 class="f16 fn lh1">科技达人</h1>
+            <div class="m-t-10">打破一成不变的办公设计，办公桌上的时尚和创意，独具风格的智能科技电子，给工作带来不一样的色彩，丰富办公环境，礼无忧网精心挑选各式各样的数码办公产品，奉献不一样的精彩。</div>
+            <div class="m-t-20"></div>
+        </div>
+        </div>
+        <div class="festival">
+            <p class="m-t-20 f16">更多节日场合</p>
+            <div class="fed_content m-t-10"><a href="category.php?id=43" target="_blank">元旦礼物</a><a href="category.php?id=118" target="_blank">春节礼物</a><a href="category.php?id=119" target="_blank">2.14情人节礼物 </a><a href="category.php?id=120" target="_blank">三八妇女节礼物</a><a href="category.php?id=121" target="_blank">愚人节礼物</a><a href="category.php?id=123" target="_blank">母亲节礼物</a><a href="category.php?id=355" target="_blank">520礼物</a><a href="category.php?id=124" target="_blank">六一儿童节礼物</a>
+    <a href="category.php?id=125" target="_blank">端午节礼物</a><a href="category.php?id=126" target="_blank">父亲节礼物 </a><a href="category.php?id=127" target="_blank">七夕情人节礼物</a><a href="category.php?id=132" target="_blank">教师节礼物</a><a href="category.php?id=128" target="_blank">中秋节礼物</a><a href="category.php?id=129" target="_blank">国庆节礼物</a><a href="category.php?id=130" target="_blank">光棍节礼物</a>
+    <a href="category.php?id=131" target="_blank">感恩节礼物</a><a href="category.php?id=42" target="_blank">圣诞节礼物</a><a href="category.php?id=20" target="_blank">生日礼物</a></div>
+		</div>
+    </div>
+</div>
+<div class="footer">
+    <div class="top">
+    	<div class="center clear">
+            <div class="top-box1 fl">
+            	<i class="icon-bgr icon-logo-bt fl m-r-60 m-l-20"></i>
+            </div>
+            <div class="top-box2 fl">
+            	<img src="picture/slogan.png">
+            </div>
+            <div class="top-box3 fl">
+            <p class="fb f16">关注我们</p>
+            <p class="m-t-10">
+            <a href="http://weibo.com/liwuyou" target="_blank" class="icon-bgr icon-sina"></a>
+            <a href="http://t.qq.com/liwuyou4006112156" target="_blank" class="icon-bgr icon-tencent m-l-10"></a>
+            <a href="javascript:void(0)" target="_blank" class="icon-bgr icon-wechat m-l-10 rel"><span class="dn pic-wx"></span></a>
+            </p>
+            </div>
+            <div class="top-box4 fl tc">
+            <p class="f24 lh1 fb">400-611-2156</p>
+            <p class="f12">周一至周日 8:00-24:00</p>
+            <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006112156&cref=http://www.liwuyou.com/&ref=&f=1&ty=1&ap=&as=" class="qqbtn lh1 m-t-10 dib">QQ在线交谈</a>
+            </div>
+        </div>
+    </div>
+    <div class="bottom clear f-e7e7e7">
+    
+        <ul class="center clear icons f18 fb">
+            <li class="fl fst"><i class="icon-bgr1 icon-ft1 m-r-16"></i>30天免费退换货</li>
+            <li class="fl"><i class="icon-bgr1 icon-ft2 m-r-16"></i>100%正品保证</li>
+            <li class="fl"><i class="icon-bgr1 icon-ft3 m-r-16"></i>全场免运费</li>
+            <li class="fl"><i class="icon-bgr1 icon-ft4 m-r-16"></i>提供礼品级包装</li>
+        </ul>
+    	<div class="center links clear">
+            <div class="fl">           
+            <p class="f-c3c3c3"><span class="m-r-16">© liwuyou.com</span><span><a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">粤ICP备10222238号-1</a></span></p>
+            </div>
+            <div class="fr">
+             <p class="f-f5f5f5 f0">
+             <a href="article.php?id=5" target="_blank" class="f-f5f5f5">关于我们</a><span>|</span>
+             <a href="article.php?id=85" target="_blank" class="f-f5f5f5">帮助中心</a><span>|</span>
+             <a href="article.php?id=44" target="_blank" class="f-f5f5f5">人才招聘</a><span>|</span>
+             <a href="article.php?id=82" target="_blank" class="f-f5f5f5">售后服务</a><span>|</span>
+             <a href="article.php?id=76" target="_blank" class="f-f5f5f5">配送与验收</a><span>|</span>
+             <a href="article.php?id=4" target="_blank" class="f-f5f5f5">联系我们</a><!-- <span>|</span> -->
+             <!-- <a href="javascript:void(0)" target="_blank" class="f-f5f5f5">投诉建议</a></p> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?2e66c26c9d62324132291faf1862cfa5";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+    var global_config = {
+        sub_navigation_map : eval({"\u4e0d\u9650\u5723\u8bde\u8282":"\/category.php?id=42","\u516c\u4e3b\u5973\u7968\u5723\u8bde\u8282":"\/category.php?id=42","\u6b27\u5df4\u7537\u7968\u5723\u8bde\u8282":"\/category.php?id=48","\u4e0d\u9650\u4e0d\u9650":"\/search.php","\u4e0d\u9650\u8868\u767d\u64a9\u59b9":"\/category.php?id=99","\u4e0d\u9650\u8fc7\u751f\u65e5":"\/category.php?id=20","\u4e0d\u9650\u60c5\u4eba\u8282":"\/category.php?id=49","\u4e0d\u9650\u53bb\u6c42\u5a5a":"\/category.php?id=153","\u4e0d\u9650\u7eaa\u5ff5\u65e5":"\/category.php?id=96","\u4e0d\u9650\u60f3\u9001\u4efb\u6027":"http:\/\/www.liwuyou.com\/","\u516c\u4e3b\u5973\u7968\u4e0d\u9650":"\/category.php?id=163","\u516c\u4e3b\u5973\u7968\u8868\u767d\u64a9\u59b9":"\/category.php?id=267","\u516c\u4e3b\u5973\u7968\u8fc7\u751f\u65e5":"\/category.php?id=40","\u516c\u4e3b\u5973\u7968\u60c5\u4eba\u8282":"\/category.php?id=119","\u516c\u4e3b\u5973\u7968\u53bb\u6c42\u5a5a":"\/category.php?id=153","\u516c\u4e3b\u5973\u7968\u7eaa\u5ff5\u65e5":"\/category.php?id=96","\u516c\u4e3b\u5973\u7968\u60f3\u9001\u4efb\u6027":"\/category.php?id=293","\u6b27\u5df4\u7537\u7968\u4e0d\u9650":"\/category.php?id=59","\u6b27\u5df4\u7537\u7968\u8868\u767d\u64a9\u59b9":"\/category.php?id=87","\u6b27\u5df4\u7537\u7968\u8fc7\u751f\u65e5":"\/category.php?id=82","\u6b27\u5df4\u7537\u7968\u60c5\u4eba\u8282":"\/category.php?id=62","\u6b27\u5df4\u7537\u7968\u53bb\u6c42\u5a5a":"","\u6b27\u5df4\u7537\u7968\u7eaa\u5ff5\u65e5":"\/category.php?id=84","\u6b27\u5df4\u7537\u7968\u60f3\u9001\u4efb\u6027":"\/category.php?id=59","\u6f6e\u7238\u8fa3\u5988\u4e0d\u9650":"\/category.php?id=47","\u6f6e\u7238\u8fa3\u5988\u8868\u767d\u64a9\u59b9":"\/category.php?id=51","\u6f6e\u7238\u8fa3\u5988\u8fc7\u751f\u65e5":"\/category.php?id=79","\u6f6e\u7238\u8fa3\u5988\u60c5\u4eba\u8282":"","\u6f6e\u7238\u8fa3\u5988\u53bb\u6c42\u5a5a":"","\u6f6e\u7238\u8fa3\u5988\u7eaa\u5ff5\u65e5":"\/category.php?id=96","\u6f6e\u7238\u8fa3\u5988\u60f3\u9001\u4efb\u6027":"\/category.php?id=47","\u5144\u5f1f\u95fa\u871c\u4e0d\u9650":"\/category.php?id=356","\u5144\u5f1f\u95fa\u871c\u8868\u767d\u64a9\u59b9":"\/category.php?id=267","\u5144\u5f1f\u95fa\u871c\u8fc7\u751f\u65e5":"\/category.php?id=77","\u5144\u5f1f\u95fa\u871c\u60c5\u4eba\u8282":"","\u5144\u5f1f\u95fa\u871c\u53bb\u6c42\u5a5a":"","\u5144\u5f1f\u95fa\u871c\u7eaa\u5ff5\u65e5":"","\u5144\u5f1f\u95fa\u871c\u60f3\u9001\u4efb\u6027":"\/category.php?id=356","\u718a\u5b69\u5b50\u4e0d\u9650":"\/category.php?id=58","\u718a\u5b69\u5b50\u8868\u767d\u64a9\u59b9":"","\u718a\u5b69\u5b50\u8fc7\u751f\u65e5":"\/category.php?id=38","\u718a\u5b69\u5b50\u60c5\u4eba\u8282":"","\u718a\u5b69\u5b50\u53bb\u6c42\u5a5a":"","\u718a\u5b69\u5b50\u7eaa\u5ff5\u65e5":"","\u718a\u5b69\u5b50\u60f3\u9001\u4efb\u6027":"\/category.php?id=124","\u751f\u610f\u4f19\u4f34\u4e0d\u9650":"\/category.php?id=54","\u751f\u610f\u4f19\u4f34\u8868\u767d\u64a9\u59b9":"","\u751f\u610f\u4f19\u4f34\u8fc7\u751f\u65e5":"\/category.php?id=55","\u751f\u610f\u4f19\u4f34\u60c5\u4eba\u8282":"","\u751f\u610f\u4f19\u4f34\u53bb\u6c42\u5a5a":"","\u751f\u610f\u4f19\u4f34\u7eaa\u5ff5\u65e5":"","\u751f\u610f\u4f19\u4f34\u60f3\u9001\u4efb\u6027":"\/category.php?id=78","\u81f4\u8c22\u6069\u5e08\u4e0d\u9650":"\/category.php?id=150","\u81f4\u8c22\u6069\u5e08\u8868\u767d\u64a9\u59b9":"","\u81f4\u8c22\u6069\u5e08\u8fc7\u751f\u65e5":"\/category.php?id=150","\u81f4\u8c22\u6069\u5e08\u60c5\u4eba\u8282":"","\u81f4\u8c22\u6069\u5e08\u53bb\u6c42\u5a5a":"","\u81f4\u8c22\u6069\u5e08\u60f3\u9001\u4efb\u6027":"\/category.php?id=150"})
+    };
+</script>
+<div class="toolbars tc" id="back_to_top">
+<a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=4006112156&cref=http://www.liwuyou.com/&ref=&f=1&ty=1&ap=&as=" target="_blank" class="ani-bg"><i class="icon-bgr icon-qq"></i></a>
+<a href="javascript:void(0)" class="ani-bg m-t-10"><i class="icon-bgr icon-totop"></i></a>
+</div>
+<script src="js/common.js"></script>
+<script src="js/imgtabs.js"></script>
+<script>
+(function($){	
+	var $window = $(window),$totop = $("#back_to_top");
+	$window.scroll(function(){
+		 winTop();
+	});
+	function winTop(){
+		if($window.scrollTop()<100){
+			$totop.stop().fadeOut(300);
+		}else{
+			$totop.stop().fadeIn(300);
+		}	 
+	}
+	winTop();
+	/*seo*/
+	if($(".cat_article").length>0){
+		$("#more").on("click",function(){
+			toggleSeo(!$(this).hasClass("hide"));
+		});
+		function toggleSeo(flag){			
+			var $article = $(".cat_article"),$more= $("#more");
+			if(flag){
+				$article.find(".cont").children("div").eq(1).hide();
+				$article.find(".cont").children("div").eq(0).find("ul").hide();
+				$article.find(".festival").hide();
+				$more.addClass("hide").html('查看更多<i class="icon-bgr icon-seo-down m-l-5"></i>');
+			}else{
+				$article.find(".cont").children("div").eq(1).show();
+				$article.find(".cont").children("div").eq(0).find("ul").show();
+				$article.find(".festival").show();
+				$more.removeClass("hide").html('收起更多<i class="icon-bgr icon-seo-up m-l-5"></i>');
+			}
+			
+		}
+		toggleSeo(true);
+	}
+})(jQuery);
+$("#more_btn").cat_slide({slider:$(".query-more")});
+$(".filters a").on("click",function(){
+	var $this = $(this), param = $this.data("param");
+	var value = 0;
+	if($this.html()){
+		$this.html("");	
+	}else{
+		value = 1;
+		$this.html("√");
+	}
+	
+	if(param==="special"){
+		if(value ==1){
+			$('.cat-list li:visible').each(function(i,n){
+				if($(this).hasClass('promoting')){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}
+			});
+			$('.cat-list li.promoting:visible').each(function(i,n){
+				if(i%4 == 0){
+					$(this).removeClass('m-l-20');
+				}else{
+					$(this).addClass('m-l-20');
+				}
+			});
+		}else{
+			if($('.filter-diy').html() != ''){
+				$('.cat-list li.diy-icon').each(function(i,n){
+					if(i%4 == 0){
+						$(n).removeClass('m-l-20').show();
+					}else{
+						$(n).addClass('m-l-20').show();
+					}					
+				});
+			}else{
+				$('.cat-list li').each(function(i,n){
+					if(i%4 == 0){
+						$(this).removeClass('m-l-20').show();
+					}else{
+						$(this).addClass('m-l-20').show();
+					}					
+				});
+			}
+		}
+	}else if(param==="diy"){
+		if(value ==1){
+			$('.cat-list li:visible').each(function(i,n){
+				if($(this).hasClass('diy-icon')){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}
+			});
+			$('.cat-list li.diy-icon:visible').each(function(i,n){
+				if(i%4 == 0){
+					$(this).removeClass('m-l-20');
+				}else{
+					$(this).addClass('m-l-20');
+				}
+				showImg(n,true);
+			});
+		}else{
+			if($('.filter-special').html() != ''){
+				$('.cat-list li.promoting').each(function(i,n){
+					if(i%4 == 0){
+						$(this).removeClass('m-l-20').show();
+					}else{
+						$(this).addClass('m-l-20').show();
+					}
+				});
+			}else{
+				$('.cat-list li').each(function(i,n){
+					if(i%4 == 0){
+						$(this).removeClass('m-l-20').show();
+					}else{
+						$(this).addClass('m-l-20').show();
+					}
+					showImg(n,false);
+				});
+			}
+			
+		}
+		
+	}else{
+		alert("非法操作");	
+	}
+	
+});
+</script>
+</body>
+</html>

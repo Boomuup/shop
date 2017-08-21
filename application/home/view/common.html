@@ -35,12 +35,13 @@
             <div class="operate fr m-t-31 rel" id="user_operate">
                 <a href="user.html" id="nav_user">
                     <i class="icon-bgr icon-user m-7 ani-bg"></i>
+                    <span class="cart-count" id="cart_count">{{cartLen}}</span>
                 </a>
-                {block name="cartnum"}
-                    <a href="#" class="m-l-5" id="nav_cart">
-                        <i class="icon-bgr icon-cart ani-bg"></i>
-                    </a>
-                {/block}
+
+                <a href="#" class="m-l-5" id="nav_cart">
+                    <i class="icon-bgr icon-cart ani-bg"></i>
+                </a>
+
 
                 <div class="user-box user-signin dn" id="nav_user_box">
                     <i class="icon-bgr icon-operate"></i>
@@ -213,6 +214,15 @@
                     carts.cart = response.data;
                 })
             }
+       },
+       computed:{
+           cartLen(){
+               let sum=0;
+               for (v in this.cart){
+                   sum = sum +1;
+               }
+               return sum;
+           }
        }
 
 

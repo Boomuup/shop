@@ -9,6 +9,8 @@
     <link type="text/css" rel="stylesheet" href="__ZHOME__/css/idialog.css">
     <script src="__ZHOME__/js/jquery.js"></script>
     <script src="__ZY__/node_modules/vue/dist/vue.js"></script>
+    <script src="__ZY__/node_modules/axios/dist/axios.js"></script>
+
 </head>
 
 <div class="header">
@@ -57,7 +59,7 @@
                 <td width="10%">数量</td>
                 <td width="10%">库存</td>
                 <td width="10%">小计</td>
-                <td width="10%">操作</td>
+                <!--<td width="10%">操作</td>-->
             </tr>
             </thead>
             <tbody id="cart_list">
@@ -79,7 +81,7 @@
                 </td>
                 <td>￥{$goods['gprice']}</td>
                 <td id="sub_total_1300777">￥{{totalPrice}}</td>
-                <td><a href="javascript:void(0)" class="icon-bgr icon-delete" data-rec_id="1300777"></a></td>
+                <!--<td><a href="javascript:void(0)" class="icon-bgr icon-delete" data-rec_id="1300777"></a></td>-->
             </tr>
             </tbody>
         </table>
@@ -141,7 +143,7 @@
 </div>
 
 <script>
-    new Vue({
+   new Vue({
         el:'#app',
         data:{
             cart:{$cart},
@@ -171,6 +173,7 @@
                 }
 
             }
+
         }
     })
 

@@ -56,6 +56,7 @@ class Cart extends Controller {
         }
 
         $data = json_encode($data,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+
         return view('',compact('data'));
     }
 
@@ -101,7 +102,7 @@ class Cart extends Controller {
     }
 
     /**
-     * 删除指定资源
+     * 清空指定资源
      *
      * @param  int $id
      *

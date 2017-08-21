@@ -9,6 +9,8 @@
     <link type="text/css" rel="stylesheet" href="__ZHOME__/css/idialog.css">
     <script src="__ZHOME__/js/jquery.js"></script>
     <script src="__ZY__/node_modules/vue/dist/vue.js"></script>
+    <script src="__ZY__/node_modules/axios/dist/axios.js"></script>
+
 </head>
 
 <div class="header">
@@ -79,13 +81,17 @@
                 </td>
                 <td>{{v['options'][0]['snum']}}</td>
                 <td id="sub_total_1300777">￥{{ v['price']*v['num'] || v['subprice'] }}</td>
-                <td><a href="javascript:void(0)" class="icon-bgr icon-delete" data-rec_id="1300777"></a></td>
+                <td><a href="javascript:void(0)" class="icon-bgr icon-delete" data-rec_id="1300777" @click="del(k)"></a></td>
             </tr>
             </tbody>
         </table>
         <div class="cart-btm clear f16">
             <div class="fl tl"><a href="/" class="dib m-t-5"><i class="icon-bgr icon-page-l m-r-10"></i>继续购物</a></div>
-            <div class="fr tr"><span>共1件商品</span><span class="m-l-20">合计：<b class="f18 f-d93732" id="goods-total">￥{{totalPrice}}</b></span><a href="flow.php?step=checkout" class="btn-red-sml f14 m-l-80 ani-bg">去结账</a></div>
+            <div class="fr tr">
+                <span>共{{cartLen}}件商品</span>
+                <span class="m-l-20">合计：<b class="f18 f-d93732" id="goods-total">￥{{totalPrice}}</b></span>
+                <a href="#" class="btn-red-sml f14 m-l-80 ani-bg">去结账</a>
+            </div>
         </div>
     </div>
 </div>
@@ -141,7 +147,7 @@
 </div>
 
 <script>
-    new Vue({
+    let carts = new Vue({
         el:'#app',
         data:{
             cart:{$data},
@@ -152,6 +158,13 @@
                 for (v in this.cart){
                     this.cart[v]['subprice']=this.cart[v].num * this.cart[v]['price'];
                    sum = sum + this.cart[v]['subprice'];
+                }
+                return sum;
+            },
+            cartLen(){
+                let sum=0;
+                for (v in this.cart){
+                    sum = sum +1;
                 }
                 return sum;
             }
@@ -174,6 +187,11 @@
                     this.cart[k]['num'] = this.cart[k]['num']-1;
                 }
 
+            },
+            del(k){
+                axios.get('/api/APi/deletes?sid='+k).then(function (response) {
+                    carts.cart = response.data;
+                })
             }
         }
     })

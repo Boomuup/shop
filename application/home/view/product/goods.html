@@ -47,6 +47,8 @@
         <div class="operate fr m-t-31 rel" id="user_operate">
             <a href="user.html" id="nav_user">
                 <i class="icon-bgr icon-user m-7 ani-bg"></i>
+                <span class="cart-count" id="cart_count">{{cartLen}}</span>
+
             </a>
 
             <a href="#" class="m-l-5" id="nav_cart">
@@ -340,6 +342,15 @@
 
             }
         },
+           computed:{
+               cartLen(){
+                   let sum=0;
+                   for (v in this.cart){
+                       sum = sum +1;
+                   }
+                   return sum;
+               }
+           }
     })
 
 </script>

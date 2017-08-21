@@ -2,6 +2,7 @@
 
 namespace app\api\controller;
 
+use app\common\model\Goods;
 use helper\Cart;
 use think\Controller;
 use think\Request;
@@ -36,6 +37,33 @@ class Api extends Controller
         $cart->del($sid);
         // 在返回 购物车信息
         $this->cart();
+    }
+
+    /**
+     * 删除指定资源
+     *
+     * @param  int $id
+     *
+     * @return \think\Response
+     */
+    public function deletes() {
+        $sid = input('get.sid');
+        $cart = new Cart();
+        $cart->del($sid);
+        // 在返回 购物车信息
+        $data = Session::get('cart.goods');
+        // 将商品信息添加
+        if(!is_null($data)){
+            foreach ($data as $k=>$v){
+                $info = Goods::get($v['id'])->toArray();
+                $data[$k]['info'] = $info;
+            }
+        }
+
+        $data = json_encode($data,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
+
+        echo $data;
+        exit;
     }
 
     // 添加购物车
