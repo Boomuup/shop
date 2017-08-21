@@ -104,4 +104,16 @@ class User extends Controller
         $categoryData = $this->categoryData;
         return view('',compact('categoryData','userInfo'));
     }
+
+    /**
+     * 保存用户地址
+     *
+     */
+    public function address(){
+        if(request()->isPost()){
+            halt(input());
+        }
+        $categoryData = $this->categoryData;
+        return view('',compact('categoryData'));
+    }
 }

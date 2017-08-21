@@ -30,36 +30,22 @@
             </ul>
         </div>
         <div class="user-right fr bg-fff">
-            <div class="user-title"><span class="f30 f-666">修改密码</span></div>
-            <form action="" method="post">
-                <div class="user-content">
-                <div class="md-form b-t-1">
-                    <div class="line clear m-t-40">
-                        <span class="fl tl title p-t-16 lh1"><em class="f-d93732">*</em> 原密码</span>
-                        <div class="content fl m-l-20">
-                            <input type="password" value="" name="oldPassword" class="input">
-                        </div>
-                    </div>
-                    <div class="line clear m-t-31">
-                        <span class="fl tl title p-t-16 lh1"><em class="f-d93732">*</em> 新密码</span>
-                        <div class="content fl m-l-20">
-                            <input type="password" value="" name="newPassword" class="input">
-                        </div>
-                    </div>
-                    <div class="line clear m-t-31">
-                        <span class="fl tl title p-t-16 lh1"><em class="f-d93732">*</em> 再次输入</span>
-                        <div class="content fl m-l-20">
-                            <input type="password" value="" name="rePassword" class="input">
-                        </div>
-                    </div>
-                    <div class="line clear m-t-60 b-t-1 p-t-30">
-                        <div class="content fr m-l-30">
-                            <button class="btn-red-single lh1 fr ani-bg change-password-submit" type="submit">确认提交</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="user-title f30 f-666">我的地址薄</div>
+            <div class="user-content address-book">
+                <div class="line clear"><a href="javascript:void(0)" class="btn-red-single lh1 fr ani-bg" id="add_new">添加新地址</a></div>
+                <ul class="address-list m-t-20" id="address_list"></ul>
             </div>
+            <form action="" method="post">
+                <div data-toggle="distpicker">
+                    <select name="sheng"></select>
+                    <select name="shi"></select>
+                    <select name="qu"></select>
+                </div>
+                <p>详细地址</p>
+                <textarea name="xiangxi"></textarea>
+                <button type="submit">提交</button>
             </form>
+
         </div>
     </div>
     </div>
@@ -77,5 +63,8 @@
         <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
     </div>
 </div>
-{/block}
 
+<script src="__ZHOME__/js/distpicker.data.js"></script>
+<script src="__ZHOME__/js/distpicker.js"></script>
+
+{/block}

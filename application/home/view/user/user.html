@@ -1,8 +1,11 @@
 {extend name='common' /}
 
+
+{block name='header'}
+<link rel="stylesheet" href="__ZHOME__/css/user.css">
+{/block}
+
 {block name='content'}
-
-
 
 <div class="currentloc bg-f5f5f5 clear">
     <div class="center f12">
@@ -24,7 +27,7 @@
                 <li><a href="#" class="">我的订单</a></li>
                 <li class="m-t-15"><a href="user.html" class="current">个人信息</a></li>
                 <li><a href="/changepassword.html" class="">修改密码</a></li>
-                <li><a href="#" class="">我的地址簿</a></li>
+                <li><a href="/address.html" class="">我的地址</a></li>
             </ul>
         </div>        <div class="user-right fr bg-fff">
         <div class="user-title"><span class="f30 f-666">个人信息</span></div>
@@ -73,9 +76,4 @@
         <span class="fr m-r-100 f-a5937d"><!-- 节日名称  <i class="icon-bgr icon-gift m-l-10"></i>--></span>
     </div>
 </div>
-<script src="__ZHOME__/js/reviewDetail.js"></script>
-{/block}
-
-{block name='footer'}
-<link rel="stylesheet" href="__ZHOME__/css/user.css">
 {/block}

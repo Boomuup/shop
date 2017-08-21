@@ -26,6 +26,8 @@ Route::group(['ext'=>'html'],function(){
     Route::rule('changepassword','home/User/changePassword');
     // 个人中心
     Route::rule('user','home/User/user');
+    // 个人地址管理
+    Route::rule('address','home/User/address');
 });
 
 // 首页路由组

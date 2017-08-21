@@ -178,6 +178,11 @@
                     this.cart[k]['num']  = this.cart[k]['num'] +1;
                 }
 
+                // 发送异步修改数据库数据
+                axios.get('/api/Api/update?sid='+k+'&num='+this.cart[k]['num']).then(function (response) {
+
+                })
+
             },
             reduce(k){
 
@@ -186,6 +191,11 @@
                 }else {
                     this.cart[k]['num'] = this.cart[k]['num']-1;
                 }
+
+                // 发送异步修改数据库数据
+                axios.get('/api/Api/update?sid='+k+'&num='+this.cart[k]['num']).then(function (response) {
+
+                })
 
             },
             del(k){

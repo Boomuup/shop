@@ -50,7 +50,7 @@ class Api extends Controller
         $sid = input('get.sid');
         $cart = new Cart();
         $cart->del($sid);
-        // 在返回 购物车信息
+        // 在返回 购物车信息 加 货品形象数据
         $data = Session::get('cart.goods');
         // 将商品信息添加
         if(!is_null($data)){
@@ -78,6 +78,16 @@ class Api extends Controller
         $cart->add( $data );
         // 在返回 购物车信息
         $this->cart();
+    }
+
+    // 更新商品
+    public function update(){
+        $Data = input();
+
+        $cart = new \helper\Cart();
+        $cart->update($Data);
+        echo 1;
+        exit;
     }
 
 
