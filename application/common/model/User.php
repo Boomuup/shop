@@ -141,22 +141,22 @@ class User extends Model
         // 验证  ，邮箱 ，用户名
         // 验证手机号是否重复
         $oldUsername = Session::get('user.user_username');
-        $model = User::where('username',$oldUsername)->find();
+        $userId = Session::get('user.user_id');
+        $model = User::get($userId);
 
-        $phone = $model->where('is_admin',0)->where('username','NEQ',$oldUsername)->where('phone',$data['phone'])->find();
+        $phone = $model->where('is_admin',0)->where('uid','NEQ',$userId)->where('phone',$data['phone'])->find();
         if($phone){
             return ['valid'=>0,'msg'=>"该手机已被其他用户注册"];
         }
 
-        $email = $model->where('is_admin',0)->where('username','NEQ',$oldUsername)->where('email',$data['email'])->find();
+        $email = $model->where('is_admin',0)->where('uid','NEQ',$userId)->where('email',$data['email'])->find();
         if($email){
             return ['valid'=>0,'msg'=>"该邮箱已被其他用户使用"];
         }
-        echo $oldUsername;
-        $username = $model->where('is_admin',0)->where('username',$oldUsername)->select();
+        $username = $model->where('is_admin',0)->where('uid','NEQ',$userId)->where('username',$oldUsername)->select();
 
 
-        if(count($username)>1){
+        if($username){
             return ['valid'=>0,'msg'=>"该昵称你进被使用"];
         }
 
@@ -166,6 +166,7 @@ class User extends Model
         //保存数据到数据库
         $res = $model->save();
         if ($res){
+            session('user.user_username',$data['username']);
             return ['valid'=>1,'msg'=>'修改成功'];
         }else{
             return ['valid'=>0,'msg'=>'修改信息失败'];

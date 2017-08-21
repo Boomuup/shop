@@ -36,6 +36,8 @@ Route::group(['ext'=>'html'],function(){
    Route::rule('goods/:gid','home/Product/goods');
    // 购物车
    Route::rule('cart','home/Cart/list');
+   // 商品结算
+   Route::rule('flow','home/Flow/index');
 });
 
 return [

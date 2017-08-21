@@ -100,7 +100,7 @@ class User extends Controller
             }
         }
         // 获取用户信息
-        $userInfo = UserModel::where('username',Session::get('user.user_username'))->find();
+        $userInfo = UserModel::get(Session::get('user.user_id'));
         $categoryData = $this->categoryData;
         return view('',compact('categoryData','userInfo'));
     }
