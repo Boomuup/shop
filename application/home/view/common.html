@@ -26,10 +26,9 @@
                 </div>
             </div>
             <div class="nav fl f16 lh2 m-t-28 rel">
-                <a class="fst" id="gift_guide">送礼导航</a>
-                <a href="">创意礼物</a>
-                <a href="#">新品上架</a>
-                <a href="#">七夕情人节礼物</a>
+                <a href="/category/2.html">科技达人</a>
+                <a href="/category/3.html">创意礼物</a>
+                <a href="/category/9.html">音乐欣赏</a>
             </div>
             <!--登陆 注册-->
             <div class="operate fr m-t-31 rel" id="user_operate">
@@ -73,9 +72,9 @@
                         <tr class="gds" v-for="(v,k) in cart">
                             <td width="25%">
                                 <a :href="'goods/'+v['id']+'.html'">
-                                <img width="60px" :src="v['cover']">
+                                    <img width="60px" :src="v['cover']">
                                 </a>
-                            </td>
+                        </td>
                             <td class="overtxt" width="50%">
                                 <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
                             </td>
@@ -106,43 +105,6 @@
         </div>
     </div>
     <!--送给谁-->
-    <div class="query-box query-box-nav dn" id="gift_guide_box">
-        <div class="center">
-            <div class="clear">
-                <div class="query fl f12">
-                    <dl class="clear b-b-1">
-                        <dt class="fl p-y-10">送给谁：</dt>
-                        <dd class="fl p-y-10">
-                            <a href="javascript:void(0)" class="group-who">不限</a>
-                            <a href="javascript:void(0)" class="group-who">公主女票</a>
-                            <a href="javascript:void(0)" class="group-who">欧巴男票</a>
-                            <a href="javascript:void(0)" class="group-who">潮爸辣妈</a>
-                            <a href="javascript:void(0)" class="group-who">兄弟闺蜜</a>
-                            <a href="javascript:void(0)" class="group-who">熊孩子</a>
-                            <a href="javascript:void(0)" class="group-who">生意伙伴</a>
-                            <a href="javascript:void(0)" class="group-who">致谢恩师</a>
-                            <a href="javascript:void(0)" class="group-who"></a>
-                        </dd>
-                    </dl>
-                    <dl class="clear">
-                        <dt class="fl p-y-10">为啥送：</dt>
-                        <dd class="fl p-y-10">
-                            <a href="javascript:void(0)" class="group-why">不限</a>
-                            <a href="javascript:void(0)" class="group-why">表白撩妹</a>
-                            <a href="javascript:void(0)" class="group-why">过生日</a>
-                            <a href="javascript:void(0)" class="group-why">圣诞节</a>
-                            <a href="javascript:void(0)" class="group-why">情人节</a>
-                            <a href="javascript:void(0)" class="group-why">去求婚</a>
-                            <a href="javascript:void(0)" class="group-why">纪念日</a>
-                            <a href="javascript:void(0)" class="group-why">想送任性</a>
-                        </dd>
-                    </dl>
-
-                </div>
-            </div>
-            <div class="btnbox"><a href="javascript:void(0)" class="f12 btn-red-sml ani-bg navigation-search">搜索</a></div>
-        </div>
-    </div>
 
     {block name='content'}{/block}
 
@@ -158,13 +120,13 @@
                 <div class="top-box3 fl">
                     <p class="fb f16">关注我们</p>
                     <p class="m-t-10">
-                        <a href="http://weibo.com/liwuyou" target="_blank" class="icon-bgr icon-sina"></a>
-                        <a href="http://t.qq.com/liwuyou4006112156" target="_blank" class="icon-bgr icon-tencent m-l-10"></a>
+                        <a href="#" target="_blank" class="icon-bgr icon-sina"></a>
+                        <a href="#" target="_blank" class="icon-bgr icon-tencent m-l-10"></a>
                         <a href="javascript:void(0)" target="_blank" class="icon-bgr icon-wechat m-l-10 rel"><span class="dn pic-wx"></span></a>
                     </p>
                 </div>
                 <div class="top-box4 fl tc">
-                    <p class="f24 lh1 fb">400-611-2156</p>
+                    <p class="f24 lh1 fb">400-111-1111</p>
                     <p class="f12">周一至周日 8:00-24:00</p>
                     <a href="" class="qqbtn lh1 m-t-10 dib">QQ在线交谈</a>
                 </div>
@@ -180,26 +142,23 @@
             </ul>
             <div class="center links clear">
                 <div class="fl">
-                    <p class="f-c3c3c3"><span class="m-r-16">© liwuyou.com</span><span><a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">粤ICP备10222238号-1</a></span></p>
+                    <p class="f-c3c3c3"><span class="m-r-16">© 南山松</span><span><a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank"> </a></span></p>
                 </div>
                 <div class="fr">
                     <p class="f-f5f5f5 f0">
-                        <a href="article.php?id=5" target="_blank" class="f-f5f5f5">关于我们</a><span>|</span>
-                        <a href="article.php?id=85" target="_blank" class="f-f5f5f5">帮助中心</a><span>|</span>
-                        <a href="article.php?id=44" target="_blank" class="f-f5f5f5">人才招聘</a><span>|</span>
-                        <a href="article.php?id=82" target="_blank" class="f-f5f5f5">售后服务</a><span>|</span>
-                        <a href="article.php?id=76" target="_blank" class="f-f5f5f5">配送与验收</a><span>|</span>
-                        <a href="article.php?id=4" target="_blank" class="f-f5f5f5">联系我们</a><!-- <span>|</span> -->
-                        <!-- <a href="javascript:void(0)" target="_blank" class="f-f5f5f5">投诉建议</a></p> -->
+                        <a href="#" target="_blank" class="f-f5f5f5">关于我们</a><span>|</span>
+                        <a href="#" target="_blank" class="f-f5f5f5">帮助中心</a><span>|</span>
+                        <a href="#" target="_blank" class="f-f5f5f5">人才招聘</a><span>|</span>
+                        <a href="#" target="_blank" class="f-f5f5f5">售后服务</a><span>|</span>
+                        <a href="#" target="_blank" class="f-f5f5f5">配送与验收</a><span>|</span>
+                        <a href="#" target="_blank" class="f-f5f5f5">联系我们</a>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<script>
-    var global_config ='';
-</script>
 <!--vue代码放在上面 不然jquery一下代码回有问题-->
 <script>
     let carts = new Vue({
@@ -223,9 +182,13 @@
         computed:{
             cartLen(){
                 let sum=0;
-                for (v in this.cart){
-                    sum = sum +1;
+                // 如果有元素
+                if(this.cart[0]){
+                    for (v in this.cart){
+                        sum = sum +1;
+                    }
                 }
+
                 return sum;
             }
         }

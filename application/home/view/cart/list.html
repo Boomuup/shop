@@ -15,7 +15,7 @@
 
 <div class="header">
     <div class="center">
-        <div class="logo icon-bgr icon-logo ani-bg fl m-t-17"><a href="/">礼无忧首页</a></div>
+        <div class="logo icon-bgr icon-logo ani-bg fl m-t-17"><a href="/">首页</a></div>
         <span class="dib f22 m-l-30 m-t-28">我的购物车</span>
         {if condition="session('?user.user_username')"}
 
@@ -50,7 +50,7 @@
     </div>
 
 
-    <div class="shopping-cart center bg-fff tc" id="app">
+    <div class="shopping-cart center bg-fff tc" id="app" v-if="cart">
         <table>
             <thead>
             <tr>
@@ -94,6 +94,10 @@
             </div>
         </div>
     </div>
+    <div class="shopping-none center bg-fff tc" v-else>
+        <p class="f-999 f16">购物车中没有礼物</p>
+        <p class="t-line tl f16"><a href="/">继续购物</a></p>
+    </div>
 </div>
 
 <div class="footer">
@@ -130,7 +134,7 @@
         </ul>
         <div class="center links clear">
             <div class="fl">
-                <p class="f-c3c3c3"><span class="m-r-16">© ZY</span><span><a href="#" rel="nofollow" target="_blank">11111111</a></span></p>
+                <p class="f-c3c3c3"><span class="m-r-16">© 南山松</span><span><a href="#" rel="nofollow" target="_blank">11111111</a></span></p>
             </div>
             <div class="fr">
                 <p class="f-f5f5f5 f0">
@@ -139,8 +143,8 @@
                     <a href="#" target="_blank" class="f-f5f5f5">人才招聘</a><span>|</span>
                     <a href="#" target="_blank" class="f-f5f5f5">售后服务</a><span>|</span>
                     <a href="#" target="_blank" class="f-f5f5f5">配送与验收</a><span>|</span>
-                    <a href="#" target="_blank" class="f-f5f5f5">联系我们</a><!-- <span>|</span> -->
-                    <!-- <a href="javascript:void(0)" target="_blank" class="f-f5f5f5">投诉建议</a></p> -->
+                    <a href="#" target="_blank" class="f-f5f5f5">联系我们</a>
+                </p>
             </div>
         </div>
     </div>

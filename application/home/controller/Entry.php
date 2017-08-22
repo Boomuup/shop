@@ -42,9 +42,14 @@ class Entry extends Controller
         // 科技达人分类数据 cid = 2
         // 获取 子类的cid
         $subData = $this->model::where('pid',2)->column('cid');
-
         $teGoodsData = Goods::where('pid','in',$subData)->field('gid,gname,gprice,mprice,cover,click,description')->select();
-        return view('',compact('categoryData','teGoodsData'));
+
+        $subData1 = $this->model::where('pid',1)->column('cid');
+        $shGoodsData = Goods::where('pid','in',$subData1)->field('gid,gname,gprice,mprice,cover,click,description')->select();
+
+        $subData2 = $this->model::where('pid',3)->column('cid');
+        $cyGoodsData = Goods::where('pid','in',$subData2)->field('gid,gname,gprice,mprice,cover,click,description')->select();
+        return view('',compact('categoryData','teGoodsData','shGoodsData','cyGoodsData'));
     }
 
     /**
