@@ -1,1 +1,1 @@
-# 基于think PHP 5 的商品项目 
+# 基于thinkPHP5 和vue2.0 的商品项目 
