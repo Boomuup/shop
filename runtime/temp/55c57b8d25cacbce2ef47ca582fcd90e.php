@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503368751;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:56:"E:\shop\public/../application/home\view\entry\index.html";i:1503242127;s:51:"E:\shop\public/../application/home\view\common.html";i:1503382077;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -67,10 +67,10 @@
                     </dl>
                     <?php endif; ?>
                 </div>
-                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;">
+                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-if="cart">
                     <i class="icon-bgr icon-operate"></i>
                     <table class="f12">
-                        <tbody>
+                        <tbody >
                         <tr class="gds" v-for="(v,k) in cart">
 
                             <td class="overtxt" width="50%">
@@ -90,6 +90,10 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-else>
+                    <i class="icon-bgr icon-operate"></i>
+                    <p class="f12 f-999 tc p-y-20">购物车中还没有商品，赶紧选购吧！</p>
                 </div>
             </div>
             <div class="search fr m-t-31">

@@ -163,4 +163,23 @@ class User extends Controller
         $categoryData = $this->categoryData;
         return view('',compact('categoryData','orderInfo'));
     }
+
+    /**
+     * 删除订单
+     * 只能删除 未发货 或者已完成的订单
+     */
+    public function orderDel(){
+        $oid = input('oid');
+        $model = Order::get($oid);
+        if($model['status'] == '未发货' || $model['status']=='已签收'){
+            $res = $model->delete();
+            if($res){
+                $this->success('删除订单成功');
+            }else{
+                $this->error('删除订单失败');
+            }
+        }else{
+            $this->error('货物正在路中，不能删除');
+        }
+    }
 }

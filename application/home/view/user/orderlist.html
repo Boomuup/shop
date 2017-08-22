@@ -42,6 +42,7 @@
                     <th>购买商品</th>
                     <th>商品价格</th>
                     <th>订单状态</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,16 +52,22 @@
                     <td>{$v['order_name']}</td>
                     <td>
                     <?php
-                    $data = json_decode($v['goods_info'],true);
-                    foreach($data['goods'] as $k){
-                        echo $k['name'].' == '.$k['num'].' * '.$k['price'].'<br>';
-
-                        }
+                        $data = json_decode($v['goods_info'],true);
+                            foreach($data['goods'] as $k){
+                                echo $k['name'].' == '.$k['num'].' * '.$k['price'].'<br>';
+                            }
                     ?>
 
                     </td>
                     <td>{$v['price']}</td>
                     <td>{$v['status']}</td>
+                    <td>
+                        {if condition="$v['status'] != '已发货'"}
+                            <a href="javascript:if(confirm('确定删除吗？')) location.href='/orderdel/{$v['id']}.html'">删 除</a>
+                        {else /}
+                            <span style="text-decoration: line-through">删 除</span>
+                        {/if}
+                    </td>
                 </tr>
                 {/foreach}
                 </tbody>

@@ -1,5 +1,12 @@
 {extend name='common' /}
 
+{block name='header'}
+    <link rel="stylesheet" href="__ZHOME__/css/user.css">
+<style>
+
+</style>
+{/block}
+
 {block name='content'}
 
 <div class="bg-f5f5f5 p-b-10">
@@ -22,7 +29,7 @@
                     <label for="inputID" class=" title fl f16 ">收货地址:</label>
                     {if condition='$address'}
                         <div class="col-sm-10">
-                            <select name="address" id="inputID" class="form-control" style="background:#FAFFBD;width: 80%">
+                            <select name="address" id="inputID" class="form-control" style="background:#FAFFBD;width: 60%;height: 50px">
                                 {foreach $address as $v}
                                 <option value="{$v['id']}">{$v['address']['province']}-{$v['address']['city']}-{$v['address']['county']}-{$v['address']['xiangxi']}</option>
                                 {/foreach}
@@ -130,9 +137,6 @@
 {/block}
 
 {block name='footer'}
-<link rel="stylesheet" href="__ZHOME__/css/user.css">
-<script src="__ZHOME__/js/artDialog.js"></script>
-<script src="__ZHOME__/js/common.js"></script>
-<script src="__ZHOME__/js/order.js"></script>
+
 
 {/block}

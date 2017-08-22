@@ -30,6 +30,8 @@ Route::group(['ext'=>'html'],function(){
     Route::rule('address','home/User/address');
     // 订单列表
     Route::get('orderlist','home/User/orderList');
+    // 删除订单
+    Route::get('orderdel/:oid','home/User/orderDel');
 });
 
 // 首页路由组

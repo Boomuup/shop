@@ -27,7 +27,7 @@ class Cart extends Controller {
             // 将商品添加到session中
             $cart->add( $data );
             // 跳转的购物车页面
-            return $this->redirect('/cart/html');
+            return $this->redirect('/cart.html');
             exit;
 
     }
