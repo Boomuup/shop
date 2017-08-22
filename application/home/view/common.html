@@ -16,7 +16,9 @@
 <div id="app">
     <div class="header">
         <div class="center">
-            <div class="logo icon-bgr icon-logo ani-bg fl m-t-17"><a href="/">首页</a></div>
+            <div class="logo icon-bgr icon-logo ani-bg fl m-t-17">
+                <a href="/">首页</a>
+            </div>
             <div class="category tc fl" id="category">
                 <a href="#" class="f16 lh2">礼物分类<i class="icon-bgr icon-list m-l-5"></i></a>
                 <div id="category_pop" class="category-pop tc dn">
@@ -45,27 +47,27 @@
                 <div class="user-box user-signin dn" id="nav_user_box">
                     <i class="icon-bgr icon-operate"></i>
                     {if condition="session('?user.user_username')"}
-                    <dl class="tc">
-                        <dt class="f-b28850">
-                            <?php echo  session('user.user_username') ?>
-                        </dt>
-                        <dd class="lh2"><a href="/user.html">个人中心</a></dd>
-                        <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
+                        <dl class="tc" >
+                            <dt class="f-b28850">
+                                <?php echo  session('user.user_username') ?>
+                            </dt>
+                            <dd class="lh2"><a href="/user.html">个人中心</a></dd>
+                            <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
 
-                        <dd class="lh2"><a href="/logout.html">退出登陆</a></dd>
-                    </dl>
+                            <dd class="lh2"><a href="/logout.html">退出登陆</a></dd>
+                        </dl>
                     {else /}
-                    <dl class="tc">
-                        <dt class="f-b28850">
-                            <a class="f-b28850" href="/login.html">登录</a> /
-                            <a class="f-b28850" href="/register.html">注册</a>
-                        </dt>
-                        <dd class="lh2"><a href="/user.html">个人中心</a></dd>
-                        <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
-                    </dl>
+                        <dl class="tc">
+                            <dt class="f-b28850">
+                                <a class="f-b28850" href="/login.html">登录</a> /
+                                <a class="f-b28850" href="/register.html">注册</a>
+                            </dt>
+                            <dd class="lh2"><a href="/user.html">个人中心</a></dd>
+                            <dd class="lh2"><a href="/orderlist.html">我的订单</a></dd>
+                        </dl>
                     {/if}
                 </div>
-                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-if="cart">
+                <div class="user-box user-cart dn" id="nav_cart_box"  style="z-index: 1; display: none;" v-if="cart">
                     <i class="icon-bgr icon-operate"></i>
                     <table class="f12">
                         <tbody >
@@ -74,7 +76,7 @@
                                 <a :href="'goods/'+v['id']+'.html'">
                                     <img width="60px" :src="v['cover']">
                                 </a>
-                        </td>
+                            </td>
                             <td class="overtxt" width="50%">
                                 <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
                             </td>
@@ -93,7 +95,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-else>
+                <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-else="cart">
                     <i class="icon-bgr icon-operate"></i>
                     <p class="f12 f-999 tc p-y-20">购物车中还没有商品，赶紧选购吧！</p>
                 </div>
@@ -183,7 +185,7 @@
             cartLen(){
                 let sum=0;
                 // 如果有元素
-                if(this.cart[0]){
+                if(this.cart != null){
                     for (v in this.cart){
                         sum = sum +1;
                     }

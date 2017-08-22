@@ -27,6 +27,9 @@ class Api extends Controller
             }
         }
         $cart = json_encode($goods,JSON_UNESCAPED_UNICODE| JSON_UNESCAPED_SLASHES);
+        if($cart == '[]'){
+            $cart = 'null';
+        }
         echo $cart;
         exit;
     }
@@ -68,7 +71,9 @@ class Api extends Controller
         }
 
         $data = json_encode($data,JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE);
-
+        if($data == '[]'){
+            $data = 'null';
+        }
         echo $data;
         exit;
     }

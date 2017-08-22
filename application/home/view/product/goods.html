@@ -79,7 +79,7 @@
                 </dl>
                 {/if}
             </div>
-            <div class="user-box user-cart dn"  style="z-index: 1; display: none;" v-if="cart">
+            <div class="user-box user-cart dn" id="nav_cart_box"  style="z-index: 1; display: none;" v-if="cart">
                 <i class="icon-bgr icon-operate"></i>
                 <table class="f12">
                     <tbody >
@@ -351,7 +351,7 @@
            computed:{
                cartLen(){
                    let sum=0;
-                   if(this.cart){
+                   if(this.cart != null){
                        for (v in this.cart){
                            sum = sum +1;
                        }

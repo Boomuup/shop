@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="bg-f5f5f5 p-b-40">
+<div class="bg-f5f5f5 p-b-40" id="app">
     <div class="currentloc bg-f5f5f5 clear">
         <div class="center f12">
             <div class="fl"><a href="/">首页</a><span>/</span>购物车</div>
@@ -50,7 +50,8 @@
     </div>
 
 
-    <div class="shopping-cart center bg-fff tc" id="app" v-if="cart">
+
+    <div class="shopping-cart center bg-fff tc"  v-if="cart">
         <table>
             <thead>
             <tr>
@@ -94,10 +95,11 @@
             </div>
         </div>
     </div>
-    <div class="shopping-none center bg-fff tc" v-else>
+    <div class="shopping-none center bg-fff tc"  v-else>
         <p class="f-999 f16">购物车中没有礼物</p>
         <p class="t-line tl f16"><a href="/">继续购物</a></p>
     </div>
+
 </div>
 
 <div class="footer">
@@ -154,7 +156,7 @@
     let carts = new Vue({
         el:'#app',
         data:{
-            cart:{$data},
+            cart:{$data}
         },
         computed:{
             totalPrice(){
