@@ -37,8 +37,9 @@ class Cart extends Controller {
         // 将商品信息添加
         if(!is_null($data)){
             foreach ($data as $k=>$v){
-                $info = Goods::get($v['id'])->toArray();
-                $data[$k]['info'] = $info;
+                // $info = Goods::get($v['id'])->toArray();
+                $cover = Goods::where('gid',$v['id'])->value('cover');
+                $data[$k]['cover'] = $cover;
             }
         }
 

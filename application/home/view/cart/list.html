@@ -66,7 +66,7 @@
             <tr data-rec-id="1300777" v-for="(v,k) in cart" >
                 <td class="info tl">
                     <a :href="'/goods/'+v['id']+'.html'" target="_blank">
-                        <img :src="v['info']['cover']" class="dib m-r-5">
+                        <img :src="v['cover']" class="dib m-r-5">
                     </a>
                     <div class="dib">
                         <p><a :href="'/goods/'+v['id']+'.html'" target="_blank">{{v['name']}}</a></p>

@@ -71,7 +71,11 @@
                     <table class="f12">
                         <tbody >
                         <tr class="gds" v-for="(v,k) in cart">
-
+                            <td width="25%">
+                                <a :href="'goods/'+v['id']+'.html'">
+                                <img width="60px" :src="v['cover']">
+                                </a>
+                            </td>
                             <td class="overtxt" width="50%">
                                 <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
                             </td>

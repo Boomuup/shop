@@ -48,6 +48,13 @@ class Product extends Controller
 
         // 获取购物车数据
         $goods = Session::get('cart.goods');
+        if(!is_null($goods)){
+            foreach ($goods as $k=>$v){
+                // $info = Goods::get($v['id'])->toArray();
+                $cover = Goods::where('gid',$v['id'])->value('cover');
+                $goods[$k]['cover'] = $cover;
+            }
+        }
         $cart = json_encode($goods,JSON_UNESCAPED_UNICODE| JSON_UNESCAPED_SLASHES);
         return view('',compact('goodsData','categoryData','images','subGoodsData','totalNum','cart'));
     }
