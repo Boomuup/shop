@@ -11,6 +11,8 @@ use think\Session;
 class Cart extends Controller {
     /**
      * 直接购买商品
+     * 不使用直接购买了
+     * 将商品信息添加到购物车中 一起结算（网站就是这样的）
      *
      * @return \think\Response
      */
@@ -20,28 +22,13 @@ class Cart extends Controller {
 
             $data = input('post.data');
             $data = json_decode($data,true);
-            // 获取就商品信息
-            $goods = Goods::get($data['id']);
-            if (is_null($goods)){
-
-                return $this->redirect('/');
-            }
-            $goods = $goods->toArray();
-            // 获取商品属性
-            $sub = Subgoods::where('goods_id',$data['id'])->select();
-            foreach ($sub as $k=>$v){
-                if($v['sname'] == $data['options'][0]['sname']){
-                    $goods['sub'] =$sub[$k];
-                    break;
-                }
-            }
-
-
-             //halt($goods);
-            $cart = json_encode($data,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
-            $goods1 = json_encode($goods,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
-            // 将该信息返回到 购物车页面
-            return view('',compact('data','goods','cart','goods1'));
+            // 实例化购物车类
+            $cart = new \helper\Cart();
+            // 将商品添加到session中
+            $cart->add( $data );
+            // 跳转的购物车页面
+            return $this->redirect('/cart/html');
+            exit;
 
     }
 
@@ -108,7 +95,8 @@ class Cart extends Controller {
      *
      * @return \think\Response
      */
-    public function delete() {
+    public function flush() {
+
         $cart = new \helper\Cart();
         $cart->flush();
         $this->success( 'yes', 'index' );
