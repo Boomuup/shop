@@ -79,10 +79,10 @@
                 </dl>
                 {/if}
             </div>
-            <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;">
+            <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-if="cart">
                 <i class="icon-bgr icon-operate"></i>
                 <table class="f12">
-                    <tbody>
+                    <tbody >
                     <tr class="gds" v-for="(v,k) in cart">
 
                         <td class="overtxt" width="50%">
@@ -102,6 +102,10 @@
                     </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-else>
+                <i class="icon-bgr icon-operate"></i>
+                <p class="f12 f-999 tc p-y-20">购物车中还没有商品，赶紧选购吧！</p>
             </div>
 
         </div>

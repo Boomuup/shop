@@ -85,13 +85,33 @@
             </tr>
             </tbody>
         </table>
-        <div class="cart-btm clear f16">
-            <div class="fl tl"><a href="/" class="dib m-t-5"><i class="icon-bgr icon-page-l m-r-10"></i>继续购物</a></div>
-            <div class="fr tr">
-                <span>共{{cartLen}}件商品</span>
-                <span class="m-l-20">合计：<b class="f18 f-d93732" id="goods-total">￥{{totalPrice}}</b></span>
-                <a href="/flow.html" class="btn-red-sml f14 m-l-80 ani-bg">去结账</a>
-            </div>
+        <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-if="cart">
+            <i class="icon-bgr icon-operate"></i>
+            <table class="f12">
+                <tbody >
+                <tr class="gds" v-for="(v,k) in cart">
+
+                    <td class="overtxt" width="50%">
+                        <a :href="'goods/'+v['id']+'.html'">{{v['name']}}</a><br>礼物颜色:{{v['options'][0]['sname']}}
+                    </td>
+                    <td class="tr" width="25%">X{{v['num']}}<br>￥{{v['price']}}<br>
+                        <a class="remove_item" data-rec-id="1301026" @click="del(k)" href="javascript:void(0)">删除</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <div class="clear m-t-10">
+                            <a href="/cart.html" class="fr btn-red-sml ani-bg">去购物车结算</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="user-box user-cart dn" id="nav_cart_box" style="z-index: 1; display: none;" v-else>
+            <i class="icon-bgr icon-operate"></i>
+            <p class="f12 f-999 tc p-y-20">购物车中还没有商品，赶紧选购吧！</p>
         </div>
     </div>
 </div>
