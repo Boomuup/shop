@@ -46,6 +46,9 @@ Route::group(['ext'=>'html'],function(){
    Route::rule('flow','home/Flow/index');
 });
 
+// 后台入后
+//Route::rule('admin','admin/Entry/index');
+
 return [
     '__pattern__' => [
         'name' => '\w+',

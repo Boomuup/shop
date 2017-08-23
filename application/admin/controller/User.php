@@ -6,8 +6,6 @@ use app\common\model\User as UserModel;
 
 class User extends Common
 {
-
-
     /**
      *  注销功能
      */

@@ -9,7 +9,7 @@ use think\Request;
 use app\common\model\Goods as GoodsModel;
 use app\common\model\Category;
 
-class Goods extends Controller
+class Goods extends Common
 {
     /**
      * 显示商品列表
@@ -91,16 +91,6 @@ class Goods extends Controller
 
     }
 
-    /**
-     * 显示指定的资源
-     *
-     * @param  int  $id
-     * @return \think\Response
-     */
-    public function read($id)
-    {
-        //
-    }
 
     /**
      * 显示编辑资源表单页.

@@ -6,7 +6,7 @@ use think\Controller;
 use app\common\model\Order as OrderModel;
 use app\common\model\User;
 
-class Order extends Controller
+class Order extends Common
 {
     /**
      * 订单列表
