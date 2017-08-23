@@ -36,9 +36,8 @@
                         </div>
                     {else /}
                         <div class="cont fl checkbox ">
-                            <input type="text" name="address" required style="background:#FAFFBD;">
-                            <br><br>
-                            <p>你还没有收货地址，请到 <a href="/address.html" style="padding: 6px">个人中心</a> 填写收获地址，或者手动填写收货地址</p>
+                            <input type="text" readonly hidden name="address" required style="background:#FAFFBD;">
+                            <p>你还没有收货地址，请到 <a href="/address.html" style="padding: 6px">个人中心</a> 填写收获地址</p>
                         </div>
 
                     {/if}

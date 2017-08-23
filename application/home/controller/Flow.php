@@ -54,6 +54,9 @@ class Flow extends Controller
         $goodsData = Session::get('cart');
 
         if (request()->isPost()){
+            if(!input('post.address')){
+                $this->error('没有收货地址');
+            }
             $model = new Order();
             $model->order_name = 'ZY-'.Session::get('user.user_username').time();
             $model->address_id = input('post.address');
@@ -69,7 +72,6 @@ class Flow extends Controller
             if($res){
 
                 // 商品表中想要数据减少
-                $goodModel = new Subgoods();
                 foreach ($goodsData['goods'] as $k=>$v){
                     $num = $v['options'][0]['snum']-$v['num'];
                     Subgoods::where('id',$v['options'][0]['id'])->update(['snum'=>$num]);

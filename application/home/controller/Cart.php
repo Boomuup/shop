@@ -57,13 +57,6 @@ class Cart extends Controller {
         $data = input('post.data');
         $data =json_decode($data,true);
 
-//        $data = [
-//            'id'      => 1, // 商品 ID
-//            'name'    => ' 后盾网 PHP 视频教程光盘 ',
-//            'num'     => 1,
-//            'price'   => 988,
-//            'options' => '红色',
-//        ];
         $cart = new \helper\Cart();
         $cart->add( $data );
         $goods = Session::get('cart');
