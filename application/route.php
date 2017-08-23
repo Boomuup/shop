@@ -17,6 +17,7 @@ use think\Route;
 
 Route::rule('/','home/Entry/index');
 
+
 // user路由组
 Route::group(['ext'=>'html'],function(){
     // method ：请求方法
@@ -46,8 +47,7 @@ Route::group(['ext'=>'html'],function(){
    Route::rule('flow','home/Flow/index');
 });
 
-// 后台入后
-//Route::rule('admin','admin/Entry/index');
+
 
 return [
     '__pattern__' => [
