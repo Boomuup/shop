@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use app\common\model\User as UserModel;
+use app\common\model\Order;
 
 class User extends Common
 {
@@ -41,5 +42,32 @@ class User extends Common
      */
     public function register(){
         $this->error('暂未开放注册功能');
+    }
+
+    /**
+     *  前台用户列表
+     */
+    public function list(){
+        // 去除所有前台用户数据
+        $data = UserModel::where('is_admin',0)->select();
+        return view('',compact('data'));
+    }
+
+    /**
+     * 删除前台用户
+     */
+    public function delete(){
+        $id = input('id');
+        $info = Order::where('user_id',$id)->find();
+        if($info){
+            $this->error('该用户购买过商品，不能商城该用户','/admin/User/list');
+        }
+        $model = UserModel::get($id);
+        $res = $model->delete();
+        if($res){
+            $this->success('删除用户成功');
+        }else{
+            $this->error('删除失败');
+        }
     }
 }
