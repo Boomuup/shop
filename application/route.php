@@ -42,7 +42,7 @@ Route::group(['ext'=>'html'],function(){
    // 商品详情页
    Route::rule('goods/:gid','home/Product/goods');
    // 购物车
-   Route::rule('cart','home/Cart/list');
+   Route::rule('cart','home/Cart/lists');
    // 商品结算
    Route::rule('flow','home/Flow/index');
 });

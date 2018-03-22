@@ -32,7 +32,7 @@ class Cart extends Controller {
 
     }
 
-    public function list(){
+    public function lists(){
         $data = Session::get('cart.goods');
         // 将商品信息添加
         if(!is_null($data)){

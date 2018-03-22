@@ -1,4 +1,6 @@
-<?php namespace helper;
+<?php
+
+namespace helper;
 
 use think\Session;
 
