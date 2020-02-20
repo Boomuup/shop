@@ -1,5 +1,4 @@
-# 基于thinkPHP5 和vue2.0 的商城项目 
-演示网址:[http://shop.hdboy.top](http://shop.hdboy.top) 
+# 基于thinkPHP5 和vue2.0 的商城项目  
 
 ### 记录
 * 删除 `public/static/package-lock.json` gethub 会提示漏洞
